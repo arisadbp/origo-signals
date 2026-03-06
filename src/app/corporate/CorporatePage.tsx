@@ -41,10 +41,10 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 
 /* ─── Menu items ─── */
 const menuItems = [
-  { label: "หน้าแรก", href: "#hero" },
-  { label: "เกี่ยวกับเรา", href: "#about" },
-  { label: "บริการ", href: "#services" },
-  { label: "ติดต่อเรา", href: "/contact" },
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Contact", href: "/contact" },
 ];
 
 /* ─── Nav ─── */
