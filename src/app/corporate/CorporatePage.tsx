@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { useScrollToNewTab } from "@/hooks/useScrollToNewTab";
 
 
 /* ─── Scroll-reveal hook ─── */
@@ -42,10 +41,10 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 
 /* ─── Menu items ─── */
 const menuItems = [
-  { label: "หน้าแรก", href: "/", external: false },
-  { label: "เกี่ยวกับเรา", href: "/section/about", external: true },
-  { label: "บริการ", href: "/section/how-it-works", external: true },
-  { label: "ติดต่อเรา", href: "/contact", external: true },
+  { label: "หน้าแรก", href: "#hero" },
+  { label: "เกี่ยวกับเรา", href: "#about" },
+  { label: "บริการ", href: "#services" },
+  { label: "ติดต่อเรา", href: "/contact" },
 ];
 
 /* ─── Nav ─── */
@@ -82,8 +81,6 @@ function CorporateNav() {
               <a
                 key={item.href}
                 href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-white/75 transition-colors duration-200 hover:bg-white/5 hover:text-[var(--luxury-accent)] lg:px-4"
               >
                 {item.label}
@@ -134,8 +131,6 @@ function CorporateNav() {
             <a
               key={item.href}
               href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
               onClick={handleClick}
               className="text-xl font-medium text-white/80 hover:text-[var(--luxury-accent)] transition-colors"
             >
@@ -159,10 +154,8 @@ function CorporateNav() {
 
 /* ─── Hero ─── */
 function HeroSection() {
-  useScrollToNewTab("/section/about");
-
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)]">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)] snap-start">
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--luxury-bg-base)] via-transparent to-[var(--luxury-bg-base)]" />
 
@@ -206,9 +199,7 @@ function HeroSection() {
         {/* CTA */}
         <div className="mt-12 md:mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
           <a
-            href="/signals"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#about"
             className="btn-luxury group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] sm:px-10 sm:py-4 sm:text-lg"
           >
             <span className="relative z-10">เริ่มต้นกับ ORIGO</span>
@@ -229,12 +220,6 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom copyright */}
-      <div className="absolute bottom-6 left-0 right-0 text-center">
-        <p className="text-[var(--luxury-text-disabled)] text-xs animate-fade-in-up" style={{ animationDelay: "1s" }}>
-          © {new Date().getFullYear()} ORIGO. All rights reserved.
-        </p>
-      </div>
     </section>
   );
 }
@@ -398,7 +383,7 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden">
+    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden snap-start scroll-mt-20">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -523,7 +508,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="services" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden">
+    <section id="services" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden snap-start scroll-mt-20">
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -613,7 +598,7 @@ function HowItWorksSection() {
 /* ─── Footer (matches Signals footer pattern) ─── */
 function CorporateFooter() {
   return (
-    <footer id="reviews" className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20">
+    <footer id="reviews" className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 snap-start scroll-mt-20">
       <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
         <div className="text-center">
           <div className="inline-flex flex-col items-center gap-6">
@@ -641,12 +626,14 @@ function CorporateFooter() {
 /* ─── Page ─── */
 export default function CorporateHomePage() {
   return (
-    <main className="h-screen overflow-hidden bg-[var(--luxury-bg-base)] text-white">
+    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[var(--luxury-bg-base)] text-white scroll-smooth">
       <CorporateNav />
       <HeroSection />
+      <AboutSection />
+      <HowItWorksSection />
+      <CorporateFooter />
     </main>
   );
 }
 
-/* ─── Exported sub-sections for use in other pages ─── */
 export { AboutSection, HowItWorksSection, CorporateFooter, CorporateNav };
