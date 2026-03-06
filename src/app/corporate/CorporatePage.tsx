@@ -89,8 +89,18 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center px-6">
         {/* Logo + Text Row */}
-        <div className="flex items-center gap-6 sm:gap-8 md:gap-12 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          {/* Text left */}
+        <div className="flex items-center gap-6 sm:gap-8 md:gap-10 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          {/* Logo left - larger than text */}
+          <Image
+            src={logoOrigo}
+            alt="ORIGO"
+            width={280}
+            height={280}
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 shrink-0"
+            priority
+          />
+
+          {/* Text right */}
           <div className="text-left">
             <h1 className="font-heading font-black leading-[1.1] tracking-tight text-[clamp(2.5rem,8vw,6rem)]">
               <span className="text-white">FOCUS THE </span>
@@ -101,16 +111,6 @@ function HeroSection() {
               <span className="text-[var(--luxury-accent)]">92%</span>
             </p>
           </div>
-
-          {/* Logo right */}
-          <Image
-            src={logoOrigo}
-            alt="ORIGO"
-            width={200}
-            height={200}
-            className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 shrink-0"
-            priority
-          />
         </div>
 
         {/* CTA */}
