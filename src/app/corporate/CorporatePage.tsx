@@ -81,6 +81,8 @@ function CorporateNav() {
               <a
                 key={item.href}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-white/75 transition-colors duration-200 hover:bg-white/5 hover:text-[var(--luxury-accent)] lg:px-4"
               >
                 {item.label}
