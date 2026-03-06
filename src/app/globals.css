@@ -673,11 +673,11 @@
 
 /* Luxury Color Palette - Systematic & Consistent */
 :root {
-  /* Primary Accent - Single unified gold/orange */
-  --luxury-accent: #FFB347;
-  --luxury-accent-hover: #FFA726;
-  --luxury-accent-light: #FFCD85;
-  --luxury-accent-subtle: rgba(255, 179, 71, 0.1);
+  /* Primary Accent - Single unified gold */
+  --luxury-accent: #ffbd59;
+  --luxury-accent-hover: #f5b04e;
+  --luxury-accent-light: #ffd48a;
+  --luxury-accent-subtle: rgba(255, 189, 89, 0.1);
 
   /* Background Layers - Clear hierarchy */
   --luxury-bg-base: #0A0A0A;
