@@ -247,7 +247,7 @@ function GlobeCanvas({ className }: { className?: string }) {
         );
       }
 
-      const img = new Image();
+      const img = document.createElement("img");
       img.crossOrigin = "Anonymous";
       img.src = "https://unpkg.com/three-globe/example/img/earth-water.png";
       img.onload = () => {
