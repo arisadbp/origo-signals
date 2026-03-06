@@ -523,7 +523,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="services" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden snap-start scroll-mt-24">
+    <section id="services" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
