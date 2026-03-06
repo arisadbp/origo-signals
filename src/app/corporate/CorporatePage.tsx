@@ -676,12 +676,12 @@ function CorporateFooter() {
 /* ─── Page ─── */
 export default function CorporateHomePage() {
   return (
-    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[var(--luxury-bg-base)] text-white scroll-smooth">
+    <main className="h-screen overflow-hidden bg-[var(--luxury-bg-base)] text-white">
       <CorporateNav />
       <HeroSection />
-      <AboutSection />
-      <HowItWorksSection />
-      <CorporateFooter />
     </main>
   );
 }
+
+/* ─── Exported sub-sections for use in other pages ─── */
+export { AboutSection, HowItWorksSection, CorporateFooter, CorporateNav };
