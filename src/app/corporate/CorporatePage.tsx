@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import logoOrigo from "@/assets/logo-origo.png";
 
 /* ─── Scroll-reveal hook ─── */
 function useReveal() {
@@ -79,73 +80,60 @@ function CorporateNav() {
 /* ─── Hero ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--luxury-bg-base)]">
-      <div className="absolute inset-0 grid-pattern opacity-40" />
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)] snap-start">
+      <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--luxury-bg-base)] via-transparent to-[var(--luxury-bg-base)]" />
 
       {/* Ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--luxury-accent-subtle)] blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[var(--luxury-accent-subtle)] blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-28 pb-20 sm:py-24 md:py-28 lg:py-32 text-center mobile-shell desktop-shell">
-        {/* 92% */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6">
+        {/* Logo */}
         <div className="animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <span className="inline-block text-[clamp(5rem,16vw,12rem)] font-bold leading-none tracking-tighter text-white/[0.06] select-none">
-            92%
-          </span>
-          <h2 className="mt-[-0.4em] font-heading font-semibold leading-[1.05] tracking-tight text-white text-[clamp(2.3rem,7vw,5.2rem)]">
-            Automation
-          </h2>
-          <p className="mt-4 text-[var(--luxury-text-tertiary)] text-[clamp(1rem,2.4vw,1.6rem)] max-w-2xl mx-auto leading-relaxed">
-            เมื่อระบบจัดการข้อมูลและกระบวนการทำงานส่วนใหญ่โดยอัตโนมัติ
+          <Image
+            src={logoOrigo}
+            alt="ORIGO"
+            width={160}
+            height={160}
+            className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
+            priority
+          />
+        </div>
+
+        {/* Title */}
+        <div className="mt-8 md:mt-12 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <h1 className="font-heading font-black leading-[1.1] tracking-tight text-[clamp(2.5rem,8vw,6rem)]">
+            <span className="text-white">FOCUS THE </span>
+            <span className="text-[var(--luxury-accent)]">8%</span>
+          </h1>
+          <p className="mt-2 font-heading font-semibold text-[clamp(1.2rem,3.5vw,2.4rem)] tracking-wide">
+            <span className="text-white/40">DESIGNS THE </span>
+            <span className="text-[var(--luxury-accent)]/80">92%</span>
           </p>
         </div>
 
-        {/* Divider */}
-        <div className="my-10 md:my-14 flex items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-[var(--luxury-accent)]/30" />
-          <div className="w-2 h-2 rounded-full bg-[var(--luxury-accent)] opacity-60 animate-pulse-glow" />
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-[var(--luxury-accent)]/30" />
-        </div>
-
-        {/* 8% */}
-        <div className="animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-          <span className="inline-block text-[clamp(4rem,14vw,10rem)] font-bold leading-none tracking-tighter gradient-text-premium select-none">
-            8%
-          </span>
-          <h2 className="font-heading font-semibold leading-[1.1] tracking-tight text-white text-[clamp(2rem,5vw,4rem)]">
-            Human Genius
-          </h2>
-          <p className="mt-4 text-[var(--luxury-text-tertiary)] text-[clamp(1rem,2.4vw,1.6rem)] max-w-2xl mx-auto leading-relaxed">
-            คุณจึงโฟกัสกับการตัดสินใจที่สำคัญที่สุด
-          </p>
-        </div>
-
-        {/* Body */}
-        <div className="mt-14 md:mt-20 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
-          <p className="text-white/50 text-[clamp(0.95rem,2vw,1.35rem)] leading-[1.8]">
-            ORIGO ออกแบบ Intelligence System
-            <br className="hidden sm:block" />
-            ที่ช่วยเปลี่ยนข้อมูลจำนวนมากให้กลายเป็น
-            <br className="hidden sm:block" />
-            <span className="text-white/80">มุมมองตลาดที่เข้าใจง่ายและนำไปใช้ได้จริง</span>
+        {/* Subtitle */}
+        <div className="mt-8 md:mt-10 max-w-xl animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+          <p className="text-white/40 text-[clamp(0.9rem,2vw,1.2rem)] leading-relaxed">
+            Market Intelligence for International Trade
           </p>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 md:mt-16 animate-fade-in-up" style={{ animationDelay: "0.9s" }}>
+        <div className="mt-10 md:mt-14 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
           <Link
             href="/signals"
-            className="btn-luxury group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[var(--luxury-accent)] px-7 py-3 text-base font-semibold text-[#0A0A0A] sm:w-auto sm:px-9 sm:py-4 sm:text-lg md:px-10 md:text-2xl"
+            className="btn-luxury group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] sm:px-10 sm:py-4 sm:text-lg"
           >
-            <span className="relative z-10">เริ่มต้นกับ Origo Signals</span>
-            <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-300 group-hover:rotate-45 sm:h-10 sm:w-10">
+            <span className="relative z-10">เริ่มต้นกับ ORIGO</span>
+            <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-300 group-hover:rotate-45">
               →
             </span>
           </Link>
         </div>
 
         {/* Scroll hint */}
-        <div className="mt-16 md:mt-24 animate-fade-in-up" style={{ animationDelay: "1.1s" }}>
+        <div className="mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.9s" }}>
           <a href="#about" className="inline-flex flex-col items-center gap-2 text-[var(--luxury-text-subtle)] hover:text-[var(--luxury-accent)] transition-colors">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Scroll</span>
             <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -317,7 +305,7 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden scroll-mt-24">
+    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden scroll-mt-24 snap-start">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -442,7 +430,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section className="relative py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden snap-start">
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -532,7 +520,7 @@ function HowItWorksSection() {
 /* ─── Footer (matches Signals footer pattern) ─── */
 function CorporateFooter() {
   return (
-    <footer className="relative bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20">
+    <footer className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 snap-start">
       <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
         <div className="text-center">
           <div className="inline-flex flex-col items-center gap-6">
@@ -560,7 +548,7 @@ function CorporateFooter() {
 /* ─── Page ─── */
 export default function CorporateHomePage() {
   return (
-    <main className="min-h-screen bg-[var(--luxury-bg-base)] text-white">
+    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[var(--luxury-bg-base)] text-white scroll-smooth">
       <CorporateNav />
       <HeroSection />
       <AboutSection />
