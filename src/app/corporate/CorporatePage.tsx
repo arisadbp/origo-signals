@@ -87,40 +87,34 @@ function HeroSection() {
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[var(--luxury-accent-subtle)] blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
-        {/* Logo */}
-        <div className="animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+      <div className="relative z-10 flex flex-col items-center px-6">
+        {/* Logo + Text Row */}
+        <div className="flex items-center gap-6 sm:gap-8 md:gap-12 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          {/* Text left */}
+          <div className="text-left">
+            <h1 className="font-heading font-black leading-[1.1] tracking-tight text-[clamp(2.5rem,8vw,6rem)]">
+              <span className="text-white">FOCUS THE </span>
+              <span className="text-[var(--luxury-accent)]">8%</span>
+            </h1>
+            <p className="mt-1 font-heading font-semibold text-[clamp(1.2rem,3.5vw,2.4rem)] tracking-wide">
+              <span className="text-white/40">DESIGNS THE </span>
+              <span className="text-[var(--luxury-accent)]">92%</span>
+            </p>
+          </div>
+
+          {/* Logo right */}
           <Image
             src={logoOrigo}
             alt="ORIGO"
-            width={160}
-            height={160}
-            className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
+            width={200}
+            height={200}
+            className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 shrink-0"
             priority
           />
         </div>
 
-        {/* Title */}
-        <div className="mt-8 md:mt-12 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <h1 className="font-heading font-black leading-[1.1] tracking-tight text-[clamp(2.5rem,8vw,6rem)]">
-            <span className="text-white">FOCUS THE </span>
-            <span className="text-[var(--luxury-accent)]">8%</span>
-          </h1>
-          <p className="mt-2 font-heading font-semibold text-[clamp(1.2rem,3.5vw,2.4rem)] tracking-wide">
-            <span className="text-white/40">DESIGNS THE </span>
-            <span className="text-[var(--luxury-accent)]/80">92%</span>
-          </p>
-        </div>
-
-        {/* Subtitle */}
-        <div className="mt-8 md:mt-10 max-w-xl animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-          <p className="text-white/40 text-[clamp(0.9rem,2vw,1.2rem)] leading-relaxed">
-            Market Intelligence for International Trade
-          </p>
-        </div>
-
         {/* CTA */}
-        <div className="mt-10 md:mt-14 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
+        <div className="mt-12 md:mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
           <Link
             href="/signals"
             className="btn-luxury group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] sm:px-10 sm:py-4 sm:text-lg"
@@ -133,7 +127,7 @@ function HeroSection() {
         </div>
 
         {/* Scroll hint */}
-        <div className="mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.9s" }}>
+        <div className="mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
           <a href="#about" className="inline-flex flex-col items-center gap-2 text-[var(--luxury-text-subtle)] hover:text-[var(--luxury-accent)] transition-colors">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Scroll</span>
             <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
