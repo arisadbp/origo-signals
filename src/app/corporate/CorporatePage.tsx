@@ -154,10 +154,8 @@ function CorporateNav() {
 
 /* ─── Hero ─── */
 function HeroSection() {
-  useScrollToNewTab("/section/about");
-
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)]">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)] snap-start">
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--luxury-bg-base)] via-transparent to-[var(--luxury-bg-base)]" />
 
