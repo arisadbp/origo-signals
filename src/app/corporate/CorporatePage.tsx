@@ -199,9 +199,7 @@ function HeroSection() {
         {/* CTA */}
         <div className="mt-12 md:mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
           <a
-            href="/signals"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#about"
             className="btn-luxury group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] sm:px-10 sm:py-4 sm:text-lg"
           >
             <span className="relative z-10">เริ่มต้นกับ ORIGO</span>
