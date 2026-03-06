@@ -158,43 +158,7 @@ function CorporateNav() {
 
 /* ─── Hero ─── */
 function HeroSection() {
-  const hasTriggered = useRef(false);
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      // Only trigger on scroll down, and only once
-      if (e.deltaY > 30 && !hasTriggered.current) {
-        hasTriggered.current = true;
-        window.open("/signals", "_blank");
-        // Reset after a delay so it can trigger again if user stays
-        setTimeout(() => { hasTriggered.current = false; }, 3000);
-      }
-    };
-
-    // Also handle touch swipe up on mobile
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-    };
-    const handleTouchEnd = (e: TouchEvent) => {
-      const deltaY = touchStartY - e.changedTouches[0].clientY;
-      if (deltaY > 60 && !hasTriggered.current) {
-        hasTriggered.current = true;
-        window.open("/signals", "_blank");
-        setTimeout(() => { hasTriggered.current = false; }, 3000);
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
+  useScrollToNewTab("/section/about");
 
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)]">
