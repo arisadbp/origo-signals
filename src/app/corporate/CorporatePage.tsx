@@ -60,12 +60,14 @@ function CorporateNav() {
         <Link href="/">
           <Image src="/LOGO_ORI.png" alt="ORIGO" width={130} height={36} className="h-8 md:h-10 w-auto" priority />
         </Link>
-        <Link
-          href="/signals"
+        <a
+          href="https://www.origo-ai.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-gold text-sm px-5 py-2.5"
         >
-          Origo Signals →
-        </Link>
+          Login
+        </a>
       </div>
     </header>
   );
