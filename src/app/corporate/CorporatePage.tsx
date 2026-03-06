@@ -165,10 +165,10 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center px-6">
         {/* Logo + Text Row */}
-        <div className="flex items-center gap-2 sm:gap-4 md:gap-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+        <div className="flex items-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
           {/* Animated Logo left - larger than text */}
-          <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60 lg:w-80 lg:h-80 shrink-0 flex items-center justify-center">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-[85%] h-[85%] overflow-visible">
+          <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-64 lg:h-64 shrink-0 -mr-1 sm:-mr-2 md:-mr-3 flex items-center justify-center">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
               <circle
                 className="animate-[squishRing_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate_0.3s]"
                 cx="110" cy="110" r="45"
