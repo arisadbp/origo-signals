@@ -391,7 +391,7 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden">
+    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden snap-start scroll-mt-20">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
