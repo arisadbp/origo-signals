@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useScrollToNewTab } from "@/hooks/useScrollToNewTab";
 
 
 /* ─── Scroll-reveal hook ─── */
