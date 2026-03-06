@@ -449,8 +449,6 @@ function AboutSection() {
     </section>
   );
 }
-  );
-}
 
 /* ─── How It Works ─── */
 function HowItWorksSection() {
