@@ -1,5 +1,5 @@
-import LandingHeroClonePage from "./landing-hero/page";
+import CorporateHomePage from "./corporate/CorporatePage";
 
 export default function HomePage() {
-  return <LandingHeroClonePage />;
+  return <CorporateHomePage />;
 }
