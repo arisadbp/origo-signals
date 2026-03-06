@@ -613,7 +613,7 @@ function HowItWorksSection() {
 /* ─── Footer (matches Signals footer pattern) ─── */
 function CorporateFooter() {
   return (
-    <footer id="reviews" className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 snap-start scroll-mt-24">
+    <footer id="reviews" className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20">
       <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
         <div className="text-center">
           <div className="inline-flex flex-col items-center gap-6">
