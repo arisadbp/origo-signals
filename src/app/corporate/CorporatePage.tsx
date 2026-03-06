@@ -76,13 +76,13 @@ function CorporateNav() {
 /* ─── Hero ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--luxury-bg-base)]">
       {/* Subtle grid background */}
       <div className="absolute inset-0 grid-pattern opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--luxury-bg-base)] via-transparent to-[var(--luxury-bg-base)]" />
 
       {/* Ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#ffbd59]/[0.04] blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#FFB347]/[0.04] blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 pt-28 pb-20 md:pt-32 md:pb-28 text-center">
         {/* 92% */}
@@ -90,19 +90,19 @@ function HeroSection() {
           <span className="inline-block text-[clamp(5rem,14vw,10rem)] font-bold leading-none tracking-tighter text-white/[0.06] select-none">
             92%
           </span>
-          <h2 className="mt-[-0.5em] text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-white">
+          <h2 className="mt-[-0.5em] text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-white font-heading">
             Automation
           </h2>
-          <p className="mt-4 text-white/60 text-[clamp(0.95rem,2vw,1.25rem)] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-white/60 text-[clamp(0.95rem,2vw,1.25rem)] max-w-2xl mx-auto leading-relaxed font-body">
             เมื่อระบบจัดการข้อมูลและกระบวนการทำงานส่วนใหญ่โดยอัตโนมัติ
           </p>
         </div>
 
         {/* Divider */}
         <div className="my-10 md:my-14 flex items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#ffbd59]/30" />
-          <div className="w-2 h-2 rounded-full bg-[#ffbd59]/60 animate-pulse-glow" />
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#ffbd59]/30" />
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#FFB347]/30" />
+          <div className="w-2 h-2 rounded-full bg-[#FFB347]/60 animate-pulse-glow" />
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#FFB347]/30" />
         </div>
 
         {/* 8% */}
@@ -110,17 +110,17 @@ function HeroSection() {
           <span className="inline-block text-[clamp(4rem,12vw,8rem)] font-bold leading-none tracking-tighter gradient-text-premium select-none">
             8%
           </span>
-          <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight text-white">
+          <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight text-white font-heading">
             Human Genius
           </h2>
-          <p className="mt-4 text-white/60 text-[clamp(0.95rem,2vw,1.25rem)] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-white/60 text-[clamp(0.95rem,2vw,1.25rem)] max-w-2xl mx-auto leading-relaxed font-body">
             คุณจึงโฟกัสกับการตัดสินใจที่สำคัญที่สุด
           </p>
         </div>
 
         {/* Body */}
         <div className="mt-14 md:mt-20 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
-          <p className="text-white/50 text-[clamp(0.9rem,1.8vw,1.1rem)] leading-[1.8]">
+          <p className="text-white/50 text-[clamp(0.9rem,1.8vw,1.1rem)] leading-[1.8] font-body">
             ORIGO ออกแบบ Intelligence System
             <br className="hidden sm:block" />
             ที่ช่วยเปลี่ยนข้อมูลจำนวนมากให้กลายเป็น
@@ -144,7 +144,7 @@ function HeroSection() {
 
         {/* Scroll hint */}
         <div className="mt-16 md:mt-24 animate-fade-in-up" style={{ animationDelay: "1.1s" }}>
-          <a href="#about" className="inline-flex flex-col items-center gap-2 text-white/30 hover:text-[#ffbd59]/60 transition-colors">
+          <a href="#about" className="inline-flex flex-col items-center gap-2 text-white/30 hover:text-[#FFB347]/60 transition-colors">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Scroll</span>
             <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -169,7 +169,7 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative py-24 md:py-36 bg-[#0A0A0A] overflow-hidden">
+    <section id="about" className="relative py-24 md:py-36 bg-[var(--luxury-bg-base)] overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6">
@@ -178,7 +178,7 @@ function AboutSection() {
           ref={r1.ref}
           className={`transition-all duration-700 ${r1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-[#ffbd59]/20 text-[#ffbd59]/80 text-xs font-mono uppercase tracking-[0.15em] mb-8">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-[#FFB347]/20 text-[#FFB347]/80 text-xs font-mono uppercase tracking-[0.15em] mb-8">
             About ORIGO
           </span>
         </div>
@@ -190,13 +190,13 @@ function AboutSection() {
             ref={r2.ref}
             className={`transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-[1.15] tracking-tight text-white">
+            <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-[1.15] tracking-tight text-white font-heading">
               From Information
               <br />
               to <span className="gradient-text-premium">Intelligence</span>
             </h2>
 
-            <div className="mt-8 space-y-5 text-white/55 text-[clamp(0.9rem,1.6vw,1.05rem)] leading-[1.8]">
+            <div className="mt-8 space-y-5 text-white/55 text-[clamp(0.9rem,1.6vw,1.05rem)] leading-[1.8] font-body">
               <p>
                 ORIGO ก่อตั้งขึ้นจากประสบการณ์การทำธุรกิจระหว่างประเทศ
                 และการวิเคราะห์ตลาดมากกว่า <span className="text-white/90 font-semibold">18 ปี</span>
@@ -206,7 +206,7 @@ function AboutSection() {
                 <br />
                 สิ่งสำคัญคือการเปลี่ยนข้อมูลให้กลายเป็น
                 <br />
-                <span className="text-[#ffbd59]/90 font-medium">ระบบความเข้าใจตลาด (Intelligence System)</span>
+                <span className="text-[#FFB347]/90 font-medium">ระบบความเข้าใจตลาด (Intelligence System)</span>
               </p>
             </div>
           </div>
@@ -225,12 +225,12 @@ function AboutSection() {
                   style={{ transitionDelay: `${i * 150}ms` }}
                 >
                   <span className="text-2xl">{dp.icon}</span>
-                  <span className="text-white/80 text-sm md:text-base">{dp.label}</span>
+                  <span className="text-white/80 text-sm md:text-base font-body">{dp.label}</span>
                 </div>
               );
             })}
 
-            <p className="text-white/40 text-sm mt-6 pl-1 leading-relaxed">
+            <p className="text-white/40 text-sm mt-6 pl-1 leading-relaxed font-body">
               ให้กลายเป็นภาพรวมที่เข้าใจได้ทันที
               <br />
               เพื่อให้ผู้บริหารมองเห็นโอกาสและความเสี่ยงได้ชัดเจนขึ้น
@@ -256,7 +256,7 @@ function AboutSection() {
                 <div className="text-[clamp(2rem,5vw,3rem)] font-bold data-counter gradient-text-premium">
                   <Counter end={s.value} suffix={s.suffix} />
                 </div>
-                <div className="mt-1 text-white/40 text-xs md:text-sm">{s.label}</div>
+                <div className="mt-1 text-white/40 text-xs md:text-sm font-body">{s.label}</div>
               </div>
             );
           })}
@@ -308,7 +308,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section className="relative py-24 md:py-36 bg-[#111215] overflow-hidden">
+    <section className="relative py-24 md:py-36 bg-[var(--luxury-bg-elevated-1)] overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6">
@@ -320,10 +320,10 @@ function HowItWorksSection() {
               ref={rv.ref}
               className={`text-center mb-16 md:mb-20 transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#ffbd59]/20 text-[#ffbd59]/80 text-xs font-mono uppercase tracking-[0.15em] mb-6">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-[#FFB347]/20 text-[#FFB347]/80 text-xs font-mono uppercase tracking-[0.15em] mb-6">
                 How It Works
               </span>
-              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-white">
+              <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight text-white font-heading">
                 ORIGO ทำงานอย่างไร
               </h2>
             </div>
@@ -345,22 +345,22 @@ function HowItWorksSection() {
               >
                 {/* Phase number */}
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-[#ffbd59]/10 flex items-center justify-center text-[#ffbd59]">
+                  <div className="w-10 h-10 rounded-lg bg-[#FFB347]/10 flex items-center justify-center text-[#FFB347]">
                     {card.icon}
                   </div>
                   <span className="text-white/20 text-xs font-mono">{card.phase}</span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{card.title}</h3>
-                <p className="text-[#ffbd59]/70 text-xs font-mono uppercase tracking-wider mb-4">{card.subtitle}</p>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-1 font-heading">{card.title}</h3>
+                <p className="text-[#FFB347]/70 text-xs font-mono uppercase tracking-wider mb-4">{card.subtitle}</p>
 
-                <p className="text-white/50 text-sm leading-[1.7] flex-1">{card.body}</p>
+                <p className="text-white/50 text-sm leading-[1.7] flex-1 font-body">{card.body}</p>
 
                 {/* Points */}
                 <ul className="mt-5 space-y-2">
                   {card.points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-2 text-white/60 text-sm">
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[#ffbd59]/60 shrink-0" />
+                    <li key={pt} className="flex items-start gap-2 text-white/60 text-sm font-body">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[#FFB347]/60 shrink-0" />
                       {pt}
                     </li>
                   ))}
@@ -398,10 +398,10 @@ function HowItWorksSection() {
 /* ─── Footer ─── */
 function CorporateFooter() {
   return (
-    <footer className="py-12 md:py-16 bg-[#0A0A0A] border-t border-white/5">
+    <footer className="py-12 md:py-16 bg-[var(--luxury-bg-base)] border-t border-white/5">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <Image src="/LOGO_ORI.png" alt="ORIGO" width={100} height={28} className="h-7 w-auto opacity-40" />
-        <p className="text-white/25 text-xs text-center md:text-right">
+        <p className="text-white/25 text-xs text-center md:text-right font-body">
           © {new Date().getFullYear()} ORIGO. All rights reserved.
         </p>
       </div>
@@ -412,7 +412,7 @@ function CorporateFooter() {
 /* ─── Page ─── */
 export default function CorporateHomePage() {
   return (
-    <main className="min-h-screen bg-[#0A0A0A] text-white">
+    <main className="min-h-screen bg-[var(--luxury-bg-base)] text-white">
       <CorporateNav />
       <HeroSection />
       <AboutSection />
