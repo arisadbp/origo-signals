@@ -42,8 +42,8 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 /* ─── Menu items ─── */
 const menuItems = [
   { label: "หน้าแรก", href: "/", external: false },
-  { label: "บริการ", href: "/signals", external: true },
-  { label: "เกี่ยวกับเรา", href: "/who-we-are", external: true },
+  { label: "เกี่ยวกับเรา", href: "/section/about", external: true },
+  { label: "บริการ", href: "/section/how-it-works", external: true },
   { label: "ติดต่อเรา", href: "/contact", external: true },
 ];
 
