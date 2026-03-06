@@ -222,12 +222,6 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom copyright */}
-      <div className="absolute bottom-6 left-0 right-0 text-center">
-        <p className="text-[var(--luxury-text-disabled)] text-xs animate-fade-in-up" style={{ animationDelay: "1s" }}>
-          © {new Date().getFullYear()} ORIGO. All rights reserved.
-        </p>
-      </div>
     </section>
   );
 }
