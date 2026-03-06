@@ -165,7 +165,7 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center px-6">
         {/* Logo + Text Row */}
-        <div className="flex items-center gap-6 sm:gap-8 md:gap-10 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
           {/* Animated Logo left - larger than text */}
           <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60 lg:w-80 lg:h-80 shrink-0 flex items-center justify-center">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-[85%] h-[85%] overflow-visible">
