@@ -77,12 +77,12 @@ function CorporateNav() {
           </Link>
 
           {/* Desktop menu */}
-          <nav className="hidden md:flex flex-1 justify-center gap-1">
+          <nav className="hidden md:flex flex-1 justify-center gap-2 lg:gap-3">
             {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-white/70 hover:text-[var(--luxury-accent)] transition-colors duration-200 rounded-lg hover:bg-white/5"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-white/75 transition-colors duration-200 hover:bg-white/5 hover:text-[var(--luxury-accent)] lg:px-4"
               >
                 {item.label}
               </a>
