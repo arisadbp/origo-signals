@@ -133,6 +133,8 @@ function CorporateNav() {
             <a
               key={item.href}
               href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               onClick={handleClick}
               className="text-xl font-medium text-white/80 hover:text-[var(--luxury-accent)] transition-colors"
             >
