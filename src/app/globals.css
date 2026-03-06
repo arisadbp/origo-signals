@@ -130,6 +130,16 @@
   }
 }
 
+/* Logo Animations */
+@keyframes jumpDot {
+  0% { transform: translateY(0) scale(1.1, 0.9); }
+  100% { transform: translateY(-35px) scale(0.9, 1.1); }
+}
+@keyframes squishRing {
+  0% { transform: scale(1.02, 0.98); }
+  100% { transform: scale(0.98, 1.02); }
+}
+
 /* Custom Animations */
 @keyframes float {
   0%, 100% {
