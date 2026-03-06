@@ -548,7 +548,7 @@ function CorporateFooter() {
 /* ─── Page ─── */
 export default function CorporateHomePage() {
   return (
-    <main className="min-h-screen bg-[var(--luxury-bg-base)] text-white">
+    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[var(--luxury-bg-base)] text-white scroll-smooth">
       <CorporateNav />
       <HeroSection />
       <AboutSection />
