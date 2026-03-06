@@ -438,7 +438,7 @@ function AboutSection() {
         </div>
 
         {/* Proof points */}
-        <div className="mt-12 grid gap-8 pt-10 md:grid-cols-4 text-center">
+        <div id="results" className="mt-12 grid gap-8 pt-10 md:grid-cols-4 text-center scroll-mt-24">
           {[
             { value: 18, suffix: "+", label: "ปี", sub: "ประสบการณ์" },
             { value: 165, suffix: "+", label: "ประเทศ", sub: "ครอบคลุมทั่วโลก" },
