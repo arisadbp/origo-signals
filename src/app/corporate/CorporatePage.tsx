@@ -39,9 +39,20 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
-/* ─── Nav (matches TopNav from Signals) ─── */
+/* ─── Menu items ─── */
+const menuItems = [
+  { label: "หน้าแรก", href: "#hero" },
+  { label: "บริการ", href: "#services" },
+  { label: "ผลลัพธ์", href: "#results" },
+  { label: "เกี่ยวกับเรา", href: "#about" },
+  { label: "รีวิว", href: "#reviews" },
+];
+
+/* ─── Nav ─── */
 function CorporateNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50);
     h();
@@ -49,31 +60,96 @@ function CorporateNav() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
+  const handleClick = () => setMobileOpen(false);
+
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 animate-slide-down ${
-        scrolled
-          ? "bg-black/45 backdrop-blur-lg border-b border-border/30"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center px-4 sm:px-5 md:h-20 md:px-6 desktop-shell">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/LOGO_ORI.png" alt="ORIGO" width={140} height={40} className="h-9 w-auto md:h-10" priority />
-        </Link>
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 animate-slide-down ${
+          scrolled
+            ? "bg-black/45 backdrop-blur-lg border-b border-border/30"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center px-4 sm:px-5 md:h-20 md:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/LOGO_ORI.png" alt="ORIGO" width={140} height={40} className="h-9 w-auto md:h-10" priority />
+          </Link>
 
-        <div className="flex-1" />
+          {/* Desktop menu */}
+          <nav className="hidden md:flex flex-1 justify-center gap-1">
+            {menuItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="px-4 py-2 text-sm font-medium text-white/70 hover:text-[var(--luxury-accent)] transition-colors duration-200 rounded-lg hover:bg-white/5"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-        <a
-          href="https://www.origo-ai.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-gold"
-        >
-          Login
-        </a>
-      </div>
-    </header>
+          {/* Spacer for mobile */}
+          <div className="flex-1 md:hidden" />
+
+          <a
+            href="https://www.origo-ai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold hidden md:inline-flex"
+          >
+            Login
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden ml-3 p-2 text-white/70 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              {mobileOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="7" x2="21" y2="7" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="17" x2="21" y2="17" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center gap-6 animate-fade-in md:hidden">
+          {menuItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={handleClick}
+              className="text-xl font-medium text-white/80 hover:text-[var(--luxury-accent)] transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="https://www.origo-ai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold mt-4"
+            onClick={handleClick}
+          >
+            Login
+          </a>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -89,7 +165,7 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center px-6">
         {/* Logo + Text Row */}
-        <div className="flex items-center gap-6 sm:gap-8 md:gap-10 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
           {/* Animated Logo left - larger than text */}
           <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60 lg:w-80 lg:h-80 shrink-0 flex items-center justify-center">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-[85%] h-[85%] overflow-visible">
