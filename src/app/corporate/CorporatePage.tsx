@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import logoOrigo from "@/assets/logo-origo.png";
 
 /* ─── Scroll-reveal hook ─── */
 function useReveal() {
