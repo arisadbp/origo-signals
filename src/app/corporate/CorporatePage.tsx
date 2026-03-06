@@ -158,20 +158,166 @@ function HeroSection() {
   );
 }
 
+/* ─── Three.js Globe ─── */
+function GlobeCanvas({ className }: { className?: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let disposed = false;
+
+    const loadScript = (src: string): Promise<void> =>
+      new Promise((resolve, reject) => {
+        if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
+        const s = document.createElement("script");
+        s.src = src;
+        s.onload = () => resolve();
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+
+    (async () => {
+      await loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js");
+      await loadScript("https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js");
+
+      if (disposed) return;
+      const THREE = (window as any).THREE;
+
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x050505, 0.002);
+
+      const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
+      camera.position.z = 250;
+      camera.position.y = 50;
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.appendChild(renderer.domElement);
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.enablePan = false;
+      controls.enableZoom = false;
+      controls.minDistance = 150;
+      controls.maxDistance = 400;
+
+      const globeGroup = new THREE.Group();
+      scene.add(globeGroup);
+
+      const globeRadius = 100;
+      const sphereGeo = new THREE.SphereGeometry(globeRadius, 64, 64);
+      const sphereMat = new THREE.MeshPhongMaterial({
+        color: 0x0a0a0a, emissive: 0x000000, specular: 0x111111,
+        shininess: 5, transparent: true, opacity: 0.95,
+      });
+      globeGroup.add(new THREE.Mesh(sphereGeo, sphereMat));
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+      const dl = new THREE.DirectionalLight(0xffffff, 0.6);
+      dl.position.set(1, 1, 1).normalize();
+      scene.add(dl);
+
+      function createCircleTex(color: string, size: number) {
+        const c = document.createElement("canvas");
+        c.width = size; c.height = size;
+        const ctx = c.getContext("2d")!;
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        const t = new THREE.Texture(c);
+        t.needsUpdate = true;
+        return t;
+      }
+
+      function latLonToVec3(lat: number, lon: number, r: number) {
+        const phi = (90 - lat) * (Math.PI / 180);
+        const theta = (lon + 180) * (Math.PI / 180);
+        return new THREE.Vector3(
+          -(r * Math.sin(phi) * Math.cos(theta)),
+          r * Math.cos(phi),
+          r * Math.sin(phi) * Math.sin(theta),
+        );
+      }
+
+      const img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.src = "https://unpkg.com/three-globe/example/img/earth-water.png";
+      img.onload = () => {
+        if (disposed) return;
+        const cv = document.createElement("canvas");
+        cv.width = img.width; cv.height = img.height;
+        const ctx = cv.getContext("2d")!;
+        ctx.drawImage(img, 0, 0);
+        const data = ctx.getImageData(0, 0, cv.width, cv.height).data;
+        const pos: number[] = [];
+        const step = 3;
+        for (let y = 0; y < cv.height; y += step)
+          for (let x = 0; x < cv.width; x += step) {
+            if (data[(y * cv.width + x) * 4] < 100) {
+              const v = latLonToVec3(90 - (y / cv.height) * 180, (x / cv.width) * 360 - 180, globeRadius + 0.5);
+              pos.push(v.x, v.y, v.z);
+            }
+          }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+        const mat = new THREE.PointsMaterial({
+          size: 1.0, color: 0xbbbbbb, transparent: true, opacity: 0.8,
+          map: createCircleTex("#ffffff", 32), alphaTest: 0.1,
+        });
+        globeGroup.add(new THREE.Points(geo, mat));
+      };
+
+      function animate() {
+        if (disposed) return;
+        requestAnimationFrame(animate);
+        globeGroup.rotation.y += 0.0015;
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      const onResize = () => {
+        if (disposed) return;
+        const nw = container.clientWidth;
+        const nh = container.clientHeight;
+        camera.aspect = nw / nh;
+        camera.updateProjectionMatrix();
+        renderer.setSize(nw, nh);
+      };
+      window.addEventListener("resize", onResize);
+    })();
+
+    return () => {
+      disposed = true;
+      if (containerRef.current) containerRef.current.innerHTML = "";
+    };
+  }, []);
+
+  return <div ref={containerRef} className={className} />;
+}
+
 /* ─── About ─── */
 function AboutSection() {
   const r1 = useReveal();
   const r2 = useReveal();
 
   const dataPoints = [
-    { icon: "📊", label: "ตลาดและแนวโน้มอุตสาหกรรม" },
-    { icon: "🤝", label: "ผู้ซื้อและเครือข่ายธุรกิจ" },
-    { icon: "🏭", label: "กำลังการผลิตและซัพพลายเชน" },
-    { icon: "⚔️", label: "โครงสร้างการแข่งขัน" },
+    "ตลาดและแนวโน้มอุตสาหกรรม",
+    "ผู้ซื้อและเครือข่ายธุรกิจ",
+    "กำลังการผลิตและซัพพลายเชน",
+    "โครงสร้างการแข่งขัน",
   ];
 
   return (
-    <section id="about" className="relative py-16 sm:py-20 bg-[var(--luxury-bg-base)] overflow-hidden scroll-mt-24">
+    <section id="about" className="relative py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -180,60 +326,44 @@ function AboutSection() {
           ref={r1.ref}
           className={`transition-all duration-700 ${r1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-text-tertiary)] mb-8">
+          <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-text-tertiary)] mb-6">
             About ORIGO
           </div>
+          <h2 className="font-heading text-2xl font-semibold leading-tight text-white sm:text-4xl md:text-6xl max-w-3xl">
+            From Information
+            <br />
+            to <span className="text-[var(--luxury-accent)]">Intelligence</span>
+          </h2>
         </div>
 
-        {/* Two-column */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left — text */}
-          <div
-            ref={r2.ref}
-            className={`transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-          >
-            <h2 className="font-heading text-2xl font-semibold leading-tight text-white sm:text-4xl md:text-6xl max-w-3xl">
-              From Information
-              <br />
-              to <span className="text-[var(--luxury-accent)]">Intelligence</span>
-            </h2>
+        {/* Globe + overlay text */}
+        <div
+          ref={r2.ref}
+          className={`relative mt-10 md:mt-14 rounded-2xl overflow-hidden transition-all duration-700 delay-200 ${
+            r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+          style={{ minHeight: "500px" }}
+        >
+          <GlobeCanvas className="absolute inset-0 w-full h-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent pointer-events-none" />
 
-            <div className="mt-8 space-y-5 text-[var(--luxury-text-tertiary)] text-base leading-[1.8] sm:text-xl md:text-3xl">
-              <p>
-                ORIGO ก่อตั้งขึ้นจากประสบการณ์การทำธุรกิจระหว่างประเทศ
-                และการวิเคราะห์ตลาดมากกว่า{" "}
-                <span className="font-semibold text-[var(--luxury-accent)]">18 ปี</span>
-              </p>
-              <p className="text-base sm:text-lg md:text-2xl">
-                เราเชื่อว่าข้อมูลเพียงอย่างเดียวไม่สร้างความได้เปรียบ
-                <br />
-                สิ่งสำคัญคือการเปลี่ยนข้อมูลให้กลายเป็น
-                <br />
-                <span className="text-[var(--luxury-accent)] font-medium">ระบบความเข้าใจตลาด (Intelligence System)</span>
-              </p>
-            </div>
-          </div>
+          <div className="relative z-10 flex flex-col justify-center h-full min-h-[500px] p-8 md:p-12 lg:p-16 max-w-lg">
+            <p className="text-[var(--luxury-text-tertiary)] text-base sm:text-lg leading-[1.8] mb-8">
+              ORIGO ก่อตั้งขึ้นจากประสบการณ์การทำธุรกิจระหว่างประเทศ
+              และการวิเคราะห์ตลาดมากกว่า{" "}
+              <span className="font-semibold text-[var(--luxury-accent)]">18 ปี</span>
+            </p>
 
-          {/* Right — data points */}
-          <div className="space-y-4">
-            {dataPoints.map((dp, i) => {
-              const rv = useReveal();
-              return (
-                <div
-                  key={dp.label}
-                  ref={rv.ref}
-                  className={`card-luxury rounded-xl p-5 md:p-6 flex items-center gap-4 transition-all duration-500 ${
-                    rv.visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-                  }`}
-                  style={{ transitionDelay: `${i * 150}ms` }}
-                >
-                  <span className="text-2xl md:text-3xl">{dp.icon}</span>
-                  <span className="text-white/80 text-base sm:text-lg md:text-xl">{dp.label}</span>
-                </div>
-              );
-            })}
+            <ul className="space-y-3 mb-8">
+              {dataPoints.map((dp, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[var(--luxury-accent)] shrink-0" />
+                  <span className="text-white/90 text-sm sm:text-base md:text-lg">{dp}</span>
+                </li>
+              ))}
+            </ul>
 
-            <p className="text-[var(--luxury-text-disabled)] text-sm sm:text-base mt-6 pl-1 leading-relaxed">
+            <p className="text-white/50 text-sm sm:text-base leading-relaxed">
               ให้กลายเป็นภาพรวมที่เข้าใจได้ทันที
               <br />
               เพื่อให้ผู้บริหารมองเห็นโอกาสและความเสี่ยงได้ชัดเจนขึ้น
