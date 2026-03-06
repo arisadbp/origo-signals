@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useScrollToNewTab } from "@/hooks/useScrollToNewTab";
 
 
 /* ─── Scroll-reveal hook ─── */
@@ -42,8 +43,8 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 /* ─── Menu items ─── */
 const menuItems = [
   { label: "หน้าแรก", href: "/", external: false },
-  { label: "บริการ", href: "/signals", external: true },
-  { label: "เกี่ยวกับเรา", href: "/who-we-are", external: true },
+  { label: "เกี่ยวกับเรา", href: "/section/about", external: true },
+  { label: "บริการ", href: "/section/how-it-works", external: true },
   { label: "ติดต่อเรา", href: "/contact", external: true },
 ];
 
@@ -158,43 +159,7 @@ function CorporateNav() {
 
 /* ─── Hero ─── */
 function HeroSection() {
-  const hasTriggered = useRef(false);
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      // Only trigger on scroll down, and only once
-      if (e.deltaY > 30 && !hasTriggered.current) {
-        hasTriggered.current = true;
-        window.open("/signals", "_blank");
-        // Reset after a delay so it can trigger again if user stays
-        setTimeout(() => { hasTriggered.current = false; }, 3000);
-      }
-    };
-
-    // Also handle touch swipe up on mobile
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-    };
-    const handleTouchEnd = (e: TouchEvent) => {
-      const deltaY = touchStartY - e.changedTouches[0].clientY;
-      if (deltaY > 60 && !hasTriggered.current) {
-        hasTriggered.current = true;
-        window.open("/signals", "_blank");
-        setTimeout(() => { hasTriggered.current = false; }, 3000);
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
+  useScrollToNewTab("/section/about");
 
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)]">
@@ -433,7 +398,7 @@ function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden scroll-mt-24 snap-start">
+    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -558,7 +523,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="services" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden snap-start scroll-mt-24">
+    <section id="services" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-20 bg-[var(--luxury-bg-elevated-1)] overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
@@ -648,7 +613,7 @@ function HowItWorksSection() {
 /* ─── Footer (matches Signals footer pattern) ─── */
 function CorporateFooter() {
   return (
-    <footer id="reviews" className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 snap-start scroll-mt-24">
+    <footer id="reviews" className="relative min-h-screen flex flex-col justify-center bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20">
       <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
         <div className="text-center">
           <div className="inline-flex flex-col items-center gap-6">
