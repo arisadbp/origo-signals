@@ -158,8 +158,46 @@ function CorporateNav() {
 
 /* ─── Hero ─── */
 function HeroSection() {
+  const hasTriggered = useRef(false);
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      // Only trigger on scroll down, and only once
+      if (e.deltaY > 30 && !hasTriggered.current) {
+        hasTriggered.current = true;
+        window.open("/signals", "_blank");
+        // Reset after a delay so it can trigger again if user stays
+        setTimeout(() => { hasTriggered.current = false; }, 3000);
+      }
+    };
+
+    // Also handle touch swipe up on mobile
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchEnd = (e: TouchEvent) => {
+      const deltaY = touchStartY - e.changedTouches[0].clientY;
+      if (deltaY > 60 && !hasTriggered.current) {
+        hasTriggered.current = true;
+        window.open("/signals", "_blank");
+        setTimeout(() => { hasTriggered.current = false; }, 3000);
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, []);
+
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)] snap-start scroll-mt-24">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--luxury-bg-base)]">
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--luxury-bg-base)] via-transparent to-[var(--luxury-bg-base)]" />
 
@@ -202,26 +240,35 @@ function HeroSection() {
 
         {/* CTA */}
         <div className="mt-12 md:mt-16 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-          <Link
+          <a
             href="/signals"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-luxury group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-base font-semibold text-[#0A0A0A] sm:px-10 sm:py-4 sm:text-lg"
           >
             <span className="relative z-10">เริ่มต้นกับ ORIGO</span>
             <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-300 group-hover:rotate-45">
               →
             </span>
-          </Link>
+          </a>
         </div>
 
         {/* Scroll hint */}
         <div className="mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
-          <a href="#about" className="inline-flex flex-col items-center gap-2 text-[var(--luxury-text-subtle)] hover:text-[var(--luxury-accent)] transition-colors">
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Scroll</span>
+          <div className="inline-flex flex-col items-center gap-2 text-[var(--luxury-text-subtle)]">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Scroll to explore</span>
             <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
-          </a>
+          </div>
         </div>
+      </div>
+
+      {/* Bottom copyright */}
+      <div className="absolute bottom-6 left-0 right-0 text-center">
+        <p className="text-[var(--luxury-text-disabled)] text-xs animate-fade-in-up" style={{ animationDelay: "1s" }}>
+          © {new Date().getFullYear()} ORIGO. All rights reserved.
+        </p>
       </div>
     </section>
   );
