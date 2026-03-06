@@ -41,10 +41,10 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 
 /* ─── Menu items ─── */
 const menuItems = [
-  { label: "หน้าแรก", href: "#hero" },
-  { label: "เกี่ยวกับเรา", href: "#about" },
-  { label: "บริการ", href: "#services" },
-  { label: "ติดต่อเรา", href: "/contact" },
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Contact", href: "/contact" },
 ];
 
 /* ─── Nav ─── */
@@ -370,96 +370,80 @@ function GlobeCanvas({ className }: { className?: string }) {
   return <div ref={containerRef} className={className} />;
 }
 
-/* ─── About ─── */
+/* ─── About / What We Do ─── */
 function AboutSection() {
   const r1 = useReveal();
   const r2 = useReveal();
 
-  const dataPoints = [
-    "ตลาดและแนวโน้มอุตสาหกรรม",
-    "ผู้ซื้อและเครือข่ายธุรกิจ",
-    "กำลังการผลิตและซัพพลายเชน",
-    "โครงสร้างการแข่งขัน",
-  ];
-
   return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 sm:py-24 bg-[var(--luxury-bg-base)] overflow-hidden snap-start scroll-mt-20">
-      <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
+    <section id="about" className="relative h-screen flex items-center overflow-hidden bg-[var(--luxury-bg-base)] snap-start scroll-mt-20">
+      {/* World map globe as full background */}
+      <GlobeCanvas className="absolute inset-0 w-full h-full" />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-        {/* Label */}
-        <div
-          ref={r1.ref}
-          className={`transition-all duration-700 ${r1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
-          <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-text-tertiary)] mb-6">
-            About ORIGO
+      {/* Gradient overlays for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/40 pointer-events-none" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-10">
+        <div className="max-w-2xl">
+          {/* Label */}
+          <div
+            ref={r1.ref}
+            className={`transition-all duration-700 ${r1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
+            <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-accent)] mb-4">
+              About ORIGO
+            </div>
+            <h2 className="font-heading text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              What we <span className="text-[var(--luxury-accent)]">do?</span>
+            </h2>
           </div>
-          <h2 className="font-heading text-2xl font-semibold leading-tight text-white sm:text-4xl md:text-6xl max-w-3xl">
-            From Information
-            <br />
-            to <span className="text-[var(--luxury-accent)]">Intelligence</span>
-          </h2>
-        </div>
 
-        {/* Globe + overlay text */}
-        <div
-          ref={r2.ref}
-          className={`relative mt-10 md:mt-14 rounded-2xl overflow-hidden transition-all duration-700 delay-200 ${
-            r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ minHeight: "500px" }}
-        >
-          <GlobeCanvas className="absolute inset-0 w-full h-full" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col justify-center h-full min-h-[500px] p-8 md:p-12 lg:p-16 max-w-lg">
-            <p className="text-[var(--luxury-text-tertiary)] text-base sm:text-lg leading-[1.8] mb-8">
-              ORIGO ก่อตั้งขึ้นจากประสบการณ์การทำธุรกิจระหว่างประเทศ
-              และการวิเคราะห์ตลาดมากกว่า{" "}
-              <span className="font-semibold text-[var(--luxury-accent)]">18 ปี</span>
+          {/* Body */}
+          <div
+            ref={r2.ref}
+            className={`mt-8 md:mt-10 transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed">
+              We are a Singapore-based consultancy specializing in{" "}
+              <span className="font-semibold text-[var(--luxury-accent)]">supply chain intelligence</span>{" "}
+              and{" "}
+              <span className="font-semibold text-[var(--luxury-accent)]">strategic operations management</span>.
             </p>
 
-            <ul className="space-y-3 mb-8">
-              {dataPoints.map((dp, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[var(--luxury-accent)] shrink-0" />
-                  <span className="text-white/90 text-sm sm:text-base md:text-lg">{dp}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-6 w-16 h-px bg-[var(--luxury-accent)] opacity-60" />
 
-            <p className="text-white/50 text-sm sm:text-base leading-relaxed">
-              ให้กลายเป็นภาพรวมที่เข้าใจได้ทันที
-              <br />
-              เพื่อให้ผู้บริหารมองเห็นโอกาสและความเสี่ยงได้ชัดเจนขึ้น
+            <p className="mt-6 text-white/65 text-sm sm:text-base md:text-lg leading-[1.8]">
+              Bringing over{" "}
+              <span className="font-semibold text-white">18 years</span>{" "}
+              of experience in international trade, manufacturing networks, and advanced analytics.
+              Origo delivers solutions that go beyond technology — we craft intelligence systems that serve your business strategy.
             </p>
           </div>
-        </div>
 
-        {/* Proof points */}
-        <div id="results" className="mt-12 grid gap-8 pt-10 md:grid-cols-4 text-center scroll-mt-24">
-          {[
-            { value: 18, suffix: "+", label: "ปี", sub: "ประสบการณ์" },
-            { value: 165, suffix: "+", label: "ประเทศ", sub: "ครอบคลุมทั่วโลก" },
-            { value: 70, suffix: "K+", label: "พาร์ตเนอร์", sub: "เครือข่ายธุรกิจ" },
-            { value: 4, suffix: "B+", label: "บาท", sub: "ยอดขายที่สร้างให้ลูกค้า" },
-          ].map((s) => {
-            const rv = useReveal();
-            return (
-              <div
-                key={s.label}
-                ref={rv.ref}
-                className={`transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              >
-                <p className="text-2xl font-semibold text-white sm:text-4xl md:text-6xl">
-                  <Counter end={s.value} suffix={s.suffix} />
-                </p>
-                <p className="mt-2 text-xl text-white/85 sm:text-2xl md:text-3xl">{s.label}</p>
-                <p className="mt-3 text-base text-white/50 sm:text-lg">{s.sub}</p>
-              </div>
-            );
-          })}
+          {/* Stats row */}
+          <div className="mt-10 md:mt-14 flex flex-wrap gap-8 md:gap-12">
+            {[
+              { value: 18, suffix: "+", label: "Years Experience" },
+              { value: 165, suffix: "+", label: "Countries" },
+              { value: 70, suffix: "K+", label: "Partners" },
+            ].map((s) => {
+              const rv = useReveal();
+              return (
+                <div
+                  key={s.label}
+                  ref={rv.ref}
+                  className={`transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                >
+                  <p className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+                    <Counter end={s.value} suffix={s.suffix} />
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm text-white/50 uppercase tracking-wider">{s.label}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
