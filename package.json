@@ -6,7 +6,6 @@
     "dev": "next dev",
     "dev:all": "concurrently -n backend,frontend -c blue,green \"npm run dev --prefix ../origo-backend\" \"npm run dev\"",
     "build": "next build",
-    "build:dev": "next build",
     "start": "next start",
     "lint": "eslint"
   },

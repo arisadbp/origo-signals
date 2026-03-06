@@ -1,70 +1,45 @@
+import Image from "next/image";
 import Link from "next/link";
 import TopNav from "@/components/landing/TopNav";
-import { DottedGlobe } from "@/components/ui/DottedGlobe";
 
 export default function WhoWeArePage() {
   return (
     <main className="min-h-screen bg-[#0f1012] text-white">
       <TopNav />
-
-      {/* Hero: 2-column — content left, globe right */}
       <section className="relative overflow-hidden bg-[#101114]">
-        <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 py-16 sm:py-24 lg:py-32">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-6">
-            {/* Left — text */}
-            <div className="relative z-10">
-              <span className="inline-flex items-center rounded-full border border-[#ffbd59]/40 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.45em] text-[#ffbd59]">
+        <div className="absolute inset-0">
+          <Image
+            src="/who-we-are/hero-office.png"
+            alt="ORIGO office"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/70 to-[#0f1012]" />
+        </div>
+
+        <div className="relative">
+          <div className="mx-auto w-full max-w-6xl px-5 pb-10 pt-12 sm:px-6 sm:pb-12 sm:pt-20 lg:pt-24 mobile-shell desktop-shell">
+            <div className="flex items-start">
+              <span className="inline-flex items-center rounded-full border border-[#FFB347]/40 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.45em] text-[#FFB347]">
                 ABOUT ORIGO
               </span>
-
-              <h1 className="mt-8 font-heading text-4xl font-black leading-[0.92] tracking-tight sm:text-5xl md:text-7xl">
-                <span className="block text-[#6d6e71]">WHO</span>
-                <span className="block">
-                  WE <span className="text-[#ffbd59]">ARE</span>
-                </span>
-              </h1>
-
-              <p className="mt-8 max-w-md text-lg leading-relaxed text-white/60 sm:text-xl">
-                เราเปลี่ยนข้อมูลที่กระจัดกระจายให้กลายเป็นภาพรวมที่เข้าใจได้ทันที
-                เพื่อให้ผู้บริหารมองเห็นโอกาสและความเสี่ยงได้ชัดเจนขึ้น
-              </p>
-
-              {/* 4 capability tags */}
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {[
-                  { icon: "📊", label: "ตลาดและแนวโน้มอุตสาหกรรม" },
-                  { icon: "🤝", label: "ผู้ซื้อและเครือข่ายธุรกิจ" },
-                  { icon: "🏭", label: "กำลังการผลิตและซัพพลายเชน" },
-                  { icon: "⚡", label: "โครงสร้างการแข่งขัน" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3 text-sm text-white/80 backdrop-blur-sm"
-                  >
-                    <span className="text-lg">{item.icon}</span>
-                    <span>{item.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Right — rotating dotted globe */}
-            <div className="relative aspect-square w-full max-w-lg mx-auto lg:max-w-none">
-              <DottedGlobe />
-              {/* "8 Regions" badge */}
-              <div className="absolute bottom-6 left-6 rounded-lg border border-white/10 bg-black/70 px-3 py-2 backdrop-blur-md">
-                <div className="text-xl font-bold text-white">8</div>
-                <div className="text-[11px] uppercase tracking-wider text-white/50">
-                  Regions
-                </div>
-              </div>
+            <div className="mt-12 text-center">
+              <h1 className="inline-block text-left font-heading text-4xl font-black leading-[0.9] tracking-tight text-[#6d6e71] sm:text-5xl md:text-7xl lg:text-8xl">
+                <span className="block">WHO</span>
+                <span className="block">
+                  WE <span className="text-[#FFB347]">ARE</span>
+                </span>
+              </h1>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Origin Story */}
-      <section className="mx-auto w-full max-w-4xl px-5 py-10 sm:px-6 sm:py-14">
+      <section className="mx-auto w-full max-w-4xl px-5 py-10 sm:px-6 sm:py-14 mobile-shell desktop-shell-narrow">
         <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">
           จุดเริ่มต้นของ ORIGO
         </h2>
@@ -85,7 +60,7 @@ export default function WhoWeArePage() {
         <div className="mt-8 rounded-3xl border border-white/10 bg-[#1a1b1f] p-5 text-lg leading-relaxed text-white shadow-[0_24px_60px_rgba(0,0,0,0.55)] sm:p-6 sm:text-xl md:text-2xl">
           <p className="text-center leading-relaxed">
             ประสบการณ์ที่ทำให้เราเข้าใจว่า{" "}
-            <span className="font-semibold text-white">&quot;ตลาดโลก&quot;</span> ไม่ได้ไกล
+            <span className="font-semibold text-white">“ตลาดโลก”</span> ไม่ได้ไกล
             <span className="font-semibold text-white">เครื่องมือที่ดี</span>
             ช่วยให้เรามองหาโอกาสได้เร็วขึ้น
             เข้าถึงกลุ่มลูกค้าได้ง่ายขึ้น และลดต้นทุนของธุรกิจ
@@ -102,9 +77,8 @@ export default function WhoWeArePage() {
         </p>
       </section>
 
-      {/* 92% / 8% Section */}
       <section className="bg-[#1b1d22] py-12">
-        <div className="mx-auto w-full max-w-4xl px-6">
+        <div className="mx-auto w-full max-w-4xl px-6 mobile-shell desktop-shell-narrow">
           <h3 className="text-center text-2xl font-bold text-white sm:text-4xl">
             สิ่งที่เราเชื่อ
           </h3>
@@ -123,11 +97,11 @@ export default function WhoWeArePage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#ffbd59]/25 bg-[#17181b] p-8 text-center shadow-[0_26px_70px_rgba(0,0,0,0.5),_0_0_55px_rgba(255,189,89,0.22)] sm:p-10 md:p-14">
+            <div className="rounded-3xl border border-[#FFB347]/25 bg-[#17181b] p-8 text-center shadow-[0_26px_70px_rgba(0,0,0,0.5),_0_0_55px_rgba(255,179,71,0.22)] sm:p-10 md:p-14">
               <p className="text-lg text-white sm:text-xl md:text-2xl">
                 เพื่อให้ผู้บริหารมีเวลาเหลือไปโฟกัสกับ
               </p>
-              <div className="mt-5 text-6xl font-bold text-[#ffbd59] sm:text-7xl md:text-9xl">
+              <div className="mt-5 text-6xl font-bold text-[#FFB347] sm:text-7xl md:text-9xl">
                 8%
               </div>
               <p className="mt-4 text-lg leading-relaxed text-white sm:text-xl md:text-2xl">
@@ -139,9 +113,8 @@ export default function WhoWeArePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="border-t border-white/5 bg-[#0f1012] py-10">
-        <div className="mx-auto w-full max-w-4xl px-6 text-center">
+        <div className="mx-auto w-full max-w-4xl px-6 text-center mobile-shell desktop-shell-narrow">
           <h4 className="text-4xl font-semibold text-white">
             พร้อมที่จะเริ่มต้นกับเราหรือยัง?
           </h4>
@@ -150,7 +123,7 @@ export default function WhoWeArePage() {
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#ffbd59] px-8 py-3 text-sm font-semibold text-[#1a1a1a] shadow-[0_14px_30px_rgba(255,189,89,0.25)] transition-transform hover:translate-y-[-2px] sm:w-auto"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#FFB347] px-8 py-3 text-sm font-semibold text-[#1a1a1a] shadow-[0_14px_30px_rgba(255,179,71,0.25)] transition-transform hover:translate-y-[-2px] sm:w-auto"
           >
             ติดต่อเรา
           </Link>
