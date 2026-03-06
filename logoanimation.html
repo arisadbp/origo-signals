@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Logo Animation</title>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:transparent;}
+.logo-container{width:250px;height:250px;display:flex;align-items:center;justify-content:center;}
+svg{width:80%;height:80%;overflow:visible;}
+.dot{transform-origin:45px 45px;animation:jumpDot .6s cubic-bezier(.28,.84,.42,1) infinite alternate;}
+.ring{transform-origin:110px 155px;animation:squishRing .6s cubic-bezier(.28,.84,.42,1) infinite alternate;animation-delay:.3s;}
+@keyframes jumpDot{0%{transform:translateY(0) scale(1.1,.9);}100%{transform:translateY(-35px) scale(.9,1.1);}}
+@keyframes squishRing{0%{transform:scale(1.02,.98);}100%{transform:scale(.98,1.02);}}
+</style>
+</head>
+<body>
+<div class="logo-container">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle class="ring" cx="110" cy="110" r="45" stroke="#FDB850" stroke-width="30" fill="none"/>
+<circle class="dot" cx="45" cy="45" r="15" fill="#FDB850"/>
+</svg>
+</div>
+</body>
+</html>
