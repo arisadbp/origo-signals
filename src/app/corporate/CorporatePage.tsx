@@ -59,8 +59,9 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
 const menuItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Services", href: "#services" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "#contact" },
 ];
 
 /* ─── Nav ─── */
