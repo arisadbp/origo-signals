@@ -422,19 +422,17 @@ function AboutSection() {
             className={`mt-8 md:mt-10 transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed">
-              We are a Singapore-based consultancy specializing in{" "}
-              <span className="font-semibold text-[var(--luxury-accent)]">supply chain intelligence</span>{" "}
-              and{" "}
-              <span className="font-semibold text-[var(--luxury-accent)]">strategic operations management</span>.
+              Our leadership team brings over{" "}
+              <span className="font-semibold text-[var(--luxury-accent)]">18 years of experience</span>{" "}
+              in export and international trade.
             </p>
 
             <div className="mt-6 w-16 h-px bg-[var(--luxury-accent)] opacity-60" />
 
             <p className="mt-6 text-white/65 text-sm sm:text-base md:text-lg leading-[1.8]">
-              Bringing over{" "}
-              <span className="font-semibold text-white">18 years</span>{" "}
-              of experience in international trade, manufacturing networks, and advanced analytics.
-              Origo delivers solutions that go beyond technology — we craft intelligence systems that serve your business strategy.
+              We have worked closely with manufacturers, exporters, and major buyers across the{" "}
+              <span className="font-semibold text-white">global supply chain</span>{" "}
+              in multiple industries.
             </p>
           </div>
 
