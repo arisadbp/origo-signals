@@ -390,6 +390,7 @@ function GlobeCanvas({ className }: { className?: string }) {
 function AboutSection() {
   const r1 = useReveal();
   const r2 = useReveal();
+  const rPhoto = useReveal();
 
   return (
     <section id="about" className="relative h-screen flex items-center overflow-hidden bg-[var(--luxury-bg-base)] snap-start scroll-mt-20">
@@ -397,50 +398,80 @@ function AboutSection() {
       <GlobeCanvas className="absolute inset-0 w-full h-full" />
 
       {/* Gradient overlays for readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/40 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-10">
-        <div className="max-w-2xl">
-          {/* Label */}
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20">
+
+          {/* Left — Executive photo */}
           <div
-            ref={r1.ref}
-            className={`transition-all duration-700 ${r1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            ref={rPhoto.ref}
+            className={`shrink-0 transition-all duration-1000 ${rPhoto.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
           >
-            <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-accent)] mb-4">
-              About ORIGO
+            <div className="relative group">
+              {/* Accent border glow */}
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[var(--luxury-accent)]/30 via-transparent to-[var(--luxury-accent)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+
+              <div className="relative w-52 h-64 sm:w-60 sm:h-72 md:w-64 md:h-80 lg:w-72 lg:h-[22rem] rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
+                <Image
+                  src="/landing-hero/ceo.jpg"
+                  alt="Executive Leadership"
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                />
+                {/* Dark overlay for luxury feel */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              </div>
+
+              {/* Corner accent */}
+              <div className="absolute -bottom-2 -right-2 w-12 h-12 border-b-2 border-r-2 border-[var(--luxury-accent)]/40 rounded-br-2xl" />
+              <div className="absolute -top-2 -left-2 w-12 h-12 border-t-2 border-l-2 border-[var(--luxury-accent)]/40 rounded-tl-2xl" />
             </div>
-            <h2 className="font-heading text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              What we <span className="text-[var(--luxury-accent)]">do?</span>
-            </h2>
           </div>
 
-          {/* Body */}
-          <div
-            ref={r2.ref}
-            className={`mt-8 md:mt-10 transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-          >
-            <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed">
-              Our leadership team brings over{" "}
-              <span className="font-semibold text-[var(--luxury-accent)]">18 years of experience</span>{" "}
-              in export and international trade.
-            </p>
+          {/* Right — Text content */}
+          <div className="flex-1 min-w-0">
+            {/* Label */}
+            <div
+              ref={r1.ref}
+              className={`transition-all duration-700 ${r1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
+              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-accent)] mb-4">
+                About ORIGO
+              </div>
+              <h2 className="font-heading text-3xl font-bold leading-tight text-white sm:text-5xl md:text-5xl lg:text-6xl">
+                What we <span className="text-[var(--luxury-accent)]">do?</span>
+              </h2>
+            </div>
 
-            <div className="mt-6 w-16 h-px bg-[var(--luxury-accent)] opacity-60" />
+            {/* Body */}
+            <div
+              ref={r2.ref}
+              className={`mt-8 md:mt-10 transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            >
+              <p className="text-white/90 text-base sm:text-lg md:text-xl leading-relaxed">
+                Our leadership team brings over{" "}
+                <span className="font-semibold text-[var(--luxury-accent)]">18 years of experience</span>{" "}
+                in export and international trade.
+              </p>
 
-            <p className="mt-6 text-white/65 text-sm sm:text-base md:text-lg leading-[1.8]">
-              We have worked closely with manufacturers, exporters, and major buyers across the{" "}
-              <span className="font-semibold text-white">global supply chain</span>{" "}
-              in multiple industries.
-            </p>
-          </div>
+              <div className="mt-6 w-16 h-px bg-[var(--luxury-accent)] opacity-60" />
 
-          {/* Stats row */}
-          <div className="mt-10 md:mt-14 flex flex-wrap gap-8 md:gap-12">
-            <StatCard value={18} suffix="+" label="Years Experience" />
-            <StatCard value={165} suffix="+" label="Countries" />
-            <StatCard value={70} suffix="K+" label="Partners" />
+              <p className="mt-6 text-white/65 text-sm sm:text-base md:text-lg leading-[1.8]">
+                We have worked closely with manufacturers, exporters, and major buyers across the{" "}
+                <span className="font-semibold text-white">global supply chain</span>{" "}
+                in multiple industries.
+              </p>
+            </div>
+
+            {/* Stats row */}
+            <div className="mt-10 md:mt-14 flex flex-wrap gap-8 md:gap-12">
+              <StatCard value={18} suffix="+" label="Years Experience" />
+              <StatCard value={165} suffix="+" label="Countries" />
+              <StatCard value={70} suffix="K+" label="Partners" />
+            </div>
           </div>
         </div>
       </div>
