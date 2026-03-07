@@ -669,33 +669,59 @@ function ExperienceSection() {
           ref={r3.ref}
           className={`mt-12 md:mt-16 transition-all duration-700 delay-300 ${r3.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
-            {/* 92% — muted, understated */}
-            <div className="relative py-6 md:py-8">
-              <span className="block text-4xl sm:text-5xl md:text-6xl font-black text-white/10 leading-none tracking-tight">
-                92%
-              </span>
-              <div className="mt-4 w-10 h-px bg-white/15" />
-              <p className="mt-4 text-white/35 text-sm sm:text-base leading-[1.8]">
+          {/* 92% — muted, understated */}
+          <div className="flex items-start gap-6 md:gap-10 mb-10">
+            <span className="shrink-0 text-3xl sm:text-4xl md:text-5xl font-black text-white/8 leading-none tracking-tight">
+              92%
+            </span>
+            <div>
+              <div className="w-8 h-px bg-white/10 mb-3" />
+              <p className="text-white/30 text-sm sm:text-base leading-[1.8] max-w-xl">
                 In many organizations, as much as 92% of time is spent on operational work — managing data, processes, and coordination.
                 These tasks can be handled more efficiently through systems and technology.
               </p>
             </div>
+          </div>
 
-            {/* 8% — prominent, golden, premium */}
-            <div className="relative py-6 md:py-8">
-              {/* Soft ambient glow */}
-              <div className="absolute -inset-6 rounded-3xl bg-[var(--luxury-accent)]/[0.04] pointer-events-none" />
+          {/* Elegant divider */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
 
-              <div className="relative">
+          {/* 8% — premium golden hero moment */}
+          <div className="relative mt-10 md:mt-12">
+            {/* Animated ambient glow */}
+            <div
+              className="absolute -inset-8 rounded-3xl pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at 30% 50%, rgba(253,184,80,0.06) 0%, transparent 70%)",
+                animation: r3.visible ? "goldGlowPulse 4s ease-in-out infinite" : "none",
+              }}
+            />
+
+            <div className="relative flex items-center gap-8 md:gap-12">
+              {/* Big 8% with glow pulse */}
+              <div className="shrink-0 relative">
+                {/* Glow ring behind number */}
+                <div
+                  className="absolute inset-0 -m-4 rounded-full pointer-events-none"
+                  style={{
+                    background: "radial-gradient(circle, rgba(253,184,80,0.12) 0%, transparent 70%)",
+                    animation: r3.visible ? "goldGlowPulse 4s ease-in-out infinite" : "none",
+                  }}
+                />
                 <span
-                  className="block text-5xl sm:text-6xl md:text-7xl font-black leading-none tracking-tight text-[var(--luxury-accent)]"
-                  style={{ textShadow: "0 0 80px rgba(253,184,80,0.2)" }}
+                  className="relative block text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter text-[var(--luxury-accent)]"
+                  style={{
+                    textShadow: "0 0 60px rgba(253,184,80,0.3), 0 0 120px rgba(253,184,80,0.1)",
+                  }}
                 >
                   8%
                 </span>
-                <div className="mt-4 w-10 h-px bg-[var(--luxury-accent)]/50" />
-                <p className="mt-4 text-white/80 text-sm sm:text-base md:text-lg leading-[1.8]">
+              </div>
+
+              {/* Text */}
+              <div className="flex-1">
+                <div className="w-10 h-px bg-[var(--luxury-accent)]/40 mb-4" />
+                <p className="text-white/85 text-base sm:text-lg md:text-xl leading-[1.8]">
                   This allows leaders to focus on the{" "}
                   <span className="text-[var(--luxury-accent)] font-semibold">8% that truly drives long-term growth</span>{" "}
                   — customers, relationships, and strategic decision-making.
