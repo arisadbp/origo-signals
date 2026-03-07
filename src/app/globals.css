@@ -205,6 +205,17 @@
   }
 }
 
+@keyframes goldGlowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
 /* Utility Classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;
