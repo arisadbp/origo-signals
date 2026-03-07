@@ -4,6 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+/* ─── Stat card (hooks at top level) ─── */
+function StatCard({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const rv = useReveal();
+  return (
+    <div
+      ref={rv.ref}
+      className={`transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+    >
+      <p className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+        <Counter end={value} suffix={suffix} />
+      </p>
+      <p className="mt-1 text-xs sm:text-sm text-white/50 uppercase tracking-wider">{label}</p>
+    </div>
+  );
+}
 
 /* ─── Scroll-reveal hook ─── */
 function useReveal() {
