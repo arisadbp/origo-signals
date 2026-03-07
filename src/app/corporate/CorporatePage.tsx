@@ -414,7 +414,7 @@ function AboutSection() {
               {/* Accent border glow */}
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[var(--luxury-accent)]/30 via-transparent to-[var(--luxury-accent)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
 
-              <div className="relative w-52 h-64 sm:w-60 sm:h-72 md:w-64 md:h-80 lg:w-72 lg:h-[22rem] rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
+              <div className="relative w-60 h-72 sm:w-72 sm:h-[22rem] md:w-80 md:h-[26rem] lg:w-[22rem] lg:h-[28rem] rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
                 <Image
                   src="/landing-hero/ceo.jpg"
                   alt="Executive Leadership"
