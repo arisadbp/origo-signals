@@ -451,8 +451,93 @@ function AboutSection() {
 }
 
 /* ─── How It Works ─── */
+interface HowItWorksCardData {
+  phase: string;
+  title: string;
+  subtitle: string;
+  body: string;
+  points: string[];
+  icon: React.ReactNode;
+}
+
+function HowItWorksHeader() {
+  const rv = useReveal();
+
+  return (
+    <div
+      ref={rv.ref}
+      className={`text-center mb-12 md:mb-16 transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+    >
+      <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-text-tertiary)] mb-6">
+        How It Works
+      </div>
+      <h2 className="font-heading text-2xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl">
+        ORIGO ทำงานอย่างไร
+      </h2>
+    </div>
+  );
+}
+
+function HowItWorksCard({ card, index }: { card: HowItWorksCardData; index: number }) {
+  const rv = useReveal();
+
+  return (
+    <div
+      ref={rv.ref}
+      className={`card-luxury rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-700 ${
+        rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      style={{ transitionDelay: `${index * 200}ms` }}
+    >
+      {/* Phase number */}
+      <div className="flex items-center gap-3 mb-5">
+        <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-[var(--luxury-accent-subtle)] flex items-center justify-center text-[var(--luxury-accent)]">
+          {card.icon}
+        </div>
+        <span className="text-[var(--luxury-text-subtle)] text-xs font-mono">{card.phase}</span>
+      </div>
+
+      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1 font-heading">{card.title}</h3>
+      <p className="text-[var(--luxury-accent)] opacity-70 text-xs font-mono uppercase tracking-wider mb-4">{card.subtitle}</p>
+
+      <p className="text-[var(--luxury-text-tertiary)] text-base sm:text-lg leading-[1.7] flex-1">{card.body}</p>
+
+      {/* Points */}
+      <ul className="mt-5 space-y-2">
+        {card.points.map((pt) => (
+          <li key={pt} className="flex items-start gap-2 text-white/60 text-base sm:text-lg">
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--luxury-accent)] opacity-60 shrink-0" />
+            {pt}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function HowItWorksCta() {
+  const rv = useReveal();
+
+  return (
+    <div
+      ref={rv.ref}
+      className={`text-center mt-12 md:mt-16 transition-all duration-700 delay-300 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+    >
+      <Link
+        href="/signals"
+        className="btn-luxury group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[var(--luxury-accent)] px-7 py-3 text-base font-semibold text-[#0A0A0A] sm:w-auto sm:px-9 sm:py-4 sm:text-lg md:px-10 md:text-2xl"
+      >
+        <span className="relative z-10">เริ่มต้นกับ Origo Signals</span>
+        <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-300 group-hover:rotate-45 sm:h-10 sm:w-10">
+          →
+        </span>
+      </Link>
+    </div>
+  );
+}
+
 function HowItWorksSection() {
-  const cards = [
+  const cards: HowItWorksCardData[] = [
     {
       phase: "01",
       title: "Get Clarity",
@@ -496,84 +581,16 @@ function HowItWorksSection() {
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-        {/* Section header */}
-        {(() => {
-          const rv = useReveal();
-          return (
-            <div
-              ref={rv.ref}
-              className={`text-center mb-12 md:mb-16 transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            >
-              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-text-tertiary)] mb-6">
-                How It Works
-              </div>
-              <h2 className="font-heading text-2xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl">
-                ORIGO ทำงานอย่างไร
-              </h2>
-            </div>
-          );
-        })()}
+        <HowItWorksHeader />
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5">
-          {cards.map((card, i) => {
-            const rv = useReveal();
-            return (
-              <div
-                key={card.phase}
-                ref={rv.ref}
-                className={`card-luxury rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-700 ${
-                  rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${i * 200}ms` }}
-              >
-                {/* Phase number */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-[var(--luxury-accent-subtle)] flex items-center justify-center text-[var(--luxury-accent)]">
-                    {card.icon}
-                  </div>
-                  <span className="text-[var(--luxury-text-subtle)] text-xs font-mono">{card.phase}</span>
-                </div>
-
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1 font-heading">{card.title}</h3>
-                <p className="text-[var(--luxury-accent)] opacity-70 text-xs font-mono uppercase tracking-wider mb-4">{card.subtitle}</p>
-
-                <p className="text-[var(--luxury-text-tertiary)] text-base sm:text-lg leading-[1.7] flex-1">{card.body}</p>
-
-                {/* Points */}
-                <ul className="mt-5 space-y-2">
-                  {card.points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-2 text-white/60 text-base sm:text-lg">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--luxury-accent)] opacity-60 shrink-0" />
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+          {cards.map((card, i) => (
+            <HowItWorksCard key={card.phase} card={card} index={i} />
+          ))}
         </div>
 
-        {/* CTA */}
-        {(() => {
-          const rv = useReveal();
-          return (
-            <div
-              ref={rv.ref}
-              className={`text-center mt-12 md:mt-16 transition-all duration-700 delay-300 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            >
-              <Link
-                href="/signals"
-                className="btn-luxury group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[var(--luxury-accent)] px-7 py-3 text-base font-semibold text-[#0A0A0A] sm:w-auto sm:px-9 sm:py-4 sm:text-lg md:px-10 md:text-2xl"
-              >
-                <span className="relative z-10">เริ่มต้นกับ Origo Signals</span>
-                <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-300 group-hover:rotate-45 sm:h-10 sm:w-10">
-                  →
-                </span>
-              </Link>
-            </div>
-          );
-        })()}
+        <HowItWorksCta />
       </div>
     </section>
   );
