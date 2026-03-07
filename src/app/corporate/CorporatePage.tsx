@@ -39,6 +39,22 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
+/* ─── Stat card ─── */
+function StatCard({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const rv = useReveal();
+  return (
+    <div
+      ref={rv.ref}
+      className={`transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+    >
+      <p className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+        <Counter end={value} suffix={suffix} />
+      </p>
+      <p className="mt-1 text-xs sm:text-sm text-white/50 uppercase tracking-wider">{label}</p>
+    </div>
+  );
+}
+
 /* ─── Menu items ─── */
 const menuItems = [
   { label: "Home", href: "#hero" },
@@ -424,25 +440,9 @@ function AboutSection() {
 
           {/* Stats row */}
           <div className="mt-10 md:mt-14 flex flex-wrap gap-8 md:gap-12">
-            {[
-              { value: 18, suffix: "+", label: "Years Experience" },
-              { value: 165, suffix: "+", label: "Countries" },
-              { value: 70, suffix: "K+", label: "Partners" },
-            ].map((s) => {
-              const rv = useReveal();
-              return (
-                <div
-                  key={s.label}
-                  ref={rv.ref}
-                  className={`transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-                >
-                  <p className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-                    <Counter end={s.value} suffix={s.suffix} />
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm text-white/50 uppercase tracking-wider">{s.label}</p>
-                </div>
-              );
-            })}
+            <StatCard value={18} suffix="+" label="Years Experience" />
+            <StatCard value={165} suffix="+" label="Countries" />
+            <StatCard value={70} suffix="K+" label="Partners" />
           </div>
         </div>
       </div>
