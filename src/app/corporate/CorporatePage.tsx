@@ -638,10 +638,7 @@ function ExperienceSection() {
       {/* Subtle grid background */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
-      {/* Ambient glow behind the 8% area */}
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[var(--luxury-accent)]/10 blur-[160px] pointer-events-none" />
-
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-6 md:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-6 md:px-10">
         {/* Opening */}
         <div
           ref={r1.ref}
@@ -650,7 +647,7 @@ function ExperienceSection() {
           <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--luxury-accent)] mb-6">
             Our Experience
           </div>
-          <p className="text-white/80 text-base sm:text-lg md:text-xl leading-[1.9]">
+          <p className="text-white/80 text-base sm:text-lg md:text-xl leading-[1.9] max-w-3xl">
             Through years of hands-on experience, we realized that the global market is not as complex as it seems.
             With the right tools and structure, businesses can understand markets more quickly, connect with potential customers more easily, and reduce both time and operational costs.
           </p>
@@ -659,7 +656,7 @@ function ExperienceSection() {
         {/* Insight */}
         <div
           ref={r2.ref}
-          className={`mt-8 md:mt-10 transition-all duration-700 delay-200 ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`mt-8 md:mt-10 transition-all duration-700 delay-200 max-w-3xl ${r2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <p className="text-white/60 text-sm sm:text-base md:text-lg leading-[1.9]">
             Inspired by research and management practices used by leading organizations, we found that business growth does not come from doing everything at once.{" "}
@@ -667,57 +664,40 @@ function ExperienceSection() {
           </p>
         </div>
 
-        {/* 92% vs 8% — visual contrast */}
+        {/* 92% vs 8% — two-column elegant layout */}
         <div
           ref={r3.ref}
-          className={`mt-10 md:mt-14 transition-all duration-700 delay-300 ${r3.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`mt-12 md:mt-16 transition-all duration-700 delay-300 ${r3.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          {/* 92% bar — muted */}
-          <div className="flex items-center gap-4 mb-3">
-            <div className="flex-1 h-2 rounded-full bg-white/10 overflow-hidden">
-              <div
-                className="h-full rounded-full bg-white/20 transition-all duration-[2s] ease-out"
-                style={{ width: r3.visible ? "92%" : "0%" }}
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+            {/* 92% — muted, understated */}
+            <div className="relative py-6 md:py-8">
+              <span className="block text-4xl sm:text-5xl md:text-6xl font-black text-white/10 leading-none tracking-tight">
+                92%
+              </span>
+              <div className="mt-4 w-10 h-px bg-white/15" />
+              <p className="mt-4 text-white/35 text-sm sm:text-base leading-[1.8]">
+                In many organizations, as much as 92% of time is spent on operational work — managing data, processes, and coordination.
+                These tasks can be handled more efficiently through systems and technology.
+              </p>
             </div>
-            <span className="text-white/30 text-sm font-mono w-12 text-right">92%</span>
-          </div>
-          <p className="text-white/40 text-sm leading-relaxed mb-8">
-            In many organizations, as much as 92% of time is spent on operational work — managing data, processes, and coordination.
-            These tasks can be handled more efficiently through systems and technology.
-          </p>
 
-          {/* Divider */}
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--luxury-accent)]/30 to-transparent mb-8" />
+            {/* 8% — prominent, golden, premium */}
+            <div className="relative py-6 md:py-8">
+              {/* Soft ambient glow */}
+              <div className="absolute -inset-6 rounded-3xl bg-[var(--luxury-accent)]/[0.04] pointer-events-none" />
 
-          {/* 8% — HERO treatment */}
-          <div className="relative">
-            {/* Glow behind */}
-            <div className="absolute -inset-4 rounded-2xl bg-[var(--luxury-accent)]/5 blur-xl pointer-events-none" />
-
-            <div className="relative flex items-start gap-5 md:gap-8">
-              {/* Big 8% number */}
-              <div className="shrink-0">
-                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[var(--luxury-accent)] leading-none drop-shadow-[0_0_30px_rgba(253,184,80,0.4)]"
-                  style={{ textShadow: "0 0 60px rgba(253,184,80,0.25), 0 0 120px rgba(253,184,80,0.1)" }}
+              <div className="relative">
+                <span
+                  className="block text-5xl sm:text-6xl md:text-7xl font-black leading-none tracking-tight text-[var(--luxury-accent)]"
+                  style={{ textShadow: "0 0 80px rgba(253,184,80,0.2)" }}
                 >
                   8%
                 </span>
-              </div>
-
-              {/* 8% bar + text */}
-              <div className="flex-1 pt-2 md:pt-3">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="flex-1 h-2.5 rounded-full bg-white/10 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-[var(--luxury-accent)] to-[var(--luxury-accent)]/70 transition-all duration-[2s] ease-out shadow-[0_0_12px_rgba(253,184,80,0.5)]"
-                      style={{ width: r3.visible ? "8%" : "0%" }}
-                    />
-                  </div>
-                </div>
-                <p className="text-white/90 text-base sm:text-lg md:text-xl leading-[1.8] font-medium">
+                <div className="mt-4 w-10 h-px bg-[var(--luxury-accent)]/50" />
+                <p className="mt-4 text-white/80 text-sm sm:text-base md:text-lg leading-[1.8]">
                   This allows leaders to focus on the{" "}
-                  <span className="text-[var(--luxury-accent)] font-bold">8% that truly drives long-term growth</span>{" "}
+                  <span className="text-[var(--luxury-accent)] font-semibold">8% that truly drives long-term growth</span>{" "}
                   — customers, relationships, and strategic decision-making.
                 </p>
               </div>
@@ -728,9 +708,9 @@ function ExperienceSection() {
         {/* Scroll hint arrow */}
         <div
           ref={r4.ref}
-          className={`mt-12 flex justify-center transition-all duration-700 delay-500 ${r4.visible ? "opacity-100" : "opacity-0"}`}
+          className={`mt-10 flex justify-center transition-all duration-700 delay-500 ${r4.visible ? "opacity-100" : "opacity-0"}`}
         >
-          <svg className="w-5 h-5 text-[var(--luxury-accent)]/50 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <svg className="w-5 h-5 text-[var(--luxury-accent)]/40 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
