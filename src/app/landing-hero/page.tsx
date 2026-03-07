@@ -9,135 +9,103 @@ export default function LandingHeroClonePage() {
   return (
     <main className="min-h-screen bg-[var(--luxury-bg-base)] text-white">
       <TopNav />
-      <section id="hero" className="relative overflow-hidden bg-black">
-        {/* Background image */}
+
+      {/* ─── Hero ─── */}
+      <section id="hero" className="relative overflow-hidden bg-[var(--luxury-bg-base)]">
         <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-[url('/landing-hero/hero-7.png')] bg-cover bg-center bg-no-repeat opacity-75 md:bg-[position:-35%_50%]"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.2) 82%, rgba(0,0,0,0) 100%)",
-            }}
-          />
+          <div className="absolute inset-0 bg-[url('/landing-hero/hero-7.png')] bg-cover bg-center bg-no-repeat opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/70 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--luxury-bg-base)] via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-6xl mobile-shell desktop-shell flex-col justify-start px-5 py-12 text-center sm:px-6 sm:py-20 sm:text-left md:items-end md:px-0 md:py-24 lg:py-28">
-          <div className="mx-auto w-full max-w-xl md:ml-auto md:mr-0 md:w-[55%] md:max-w-none">
-            <h1 className="font-heading leading-[1.12] text-white">
-              <span className="grid justify-items-center sm:justify-items-start">
-                <span className="block w-full text-white tracking-tight text-[clamp(1.6rem,4.2vw,3.25rem)] md:whitespace-nowrap">
-                  บ่อยครั้งไหม...คุณกำลัง
-                </span>
-                <span className="mt-3 block w-full font-semibold tracking-tight text-[var(--luxury-accent)] text-[clamp(2.3rem,7vw,5.2rem)] md:whitespace-nowrap">
-                  "ทำงานหนัก"
-                </span>
-                <span className="mt-4 block w-full font-normal text-white/90 tracking-tight text-[clamp(1.2rem,3.4vw,3rem)] md:whitespace-nowrap">
-                  แต่ไม่แน่ใจว่ามาถูกทาง?
-                </span>
+        <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center px-6 py-24 sm:py-32 md:py-36 md:items-end">
+          <div className="w-full max-w-lg md:ml-auto md:mr-0">
+            <h1 className="font-heading leading-[1.1]">
+              <span className="block text-white text-[clamp(1.4rem,3.5vw,2.5rem)]">
+                บ่อยครั้งไหม...คุณกำลัง
+              </span>
+              <span className="mt-2 block font-bold text-[var(--luxury-accent)] text-[clamp(2rem,5.5vw,4rem)]">
+                "ทำงานหนัก"
+              </span>
+              <span className="mt-2 block text-white/70 text-[clamp(1.1rem,2.8vw,2rem)]">
+                แต่ไม่แน่ใจว่ามาถูกทาง?
               </span>
             </h1>
 
-            <p className="mt-7 text-white/85 text-[clamp(0.95rem,2.4vw,1.6rem)] max-w-none">
-              <span className="block sm:pl-6 md:whitespace-nowrap">
-                ยอดขายต่างประเทศยัง
-                <span className="font-semibold text-white underline underline-offset-4 decoration-white">
-                  ไม่โต
-                </span>
-                แม้ลงทุนเพิ่ม?
-              </span>
-              <span className="mt-2 block sm:pl-10 md:whitespace-nowrap">
-                เครื่องมือมากขึ้นแต่ความ{" "}
-                <span className="font-semibold text-white underline underline-offset-4 decoration-white">
-                  ชัดเจนน้อยลง?
-                </span>
-              </span>
-            </p>
+            <div className="mt-8 space-y-2 text-white/50 text-sm md:text-base">
+              <p>ยอดขายต่างประเทศยังไม่โต แม้ลงทุนเพิ่ม</p>
+              <p>เครื่องมือมากขึ้น แต่ความชัดเจนน้อยลง</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="relative py-14 sm:py-20">
-        <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="text-center sm:text-left">
-              <h2 className="font-heading text-2xl font-semibold leading-tight sm:text-4xl md:text-7xl">
-                พร้อมแล้วหรือยัง?
-              </h2>
-              <p className="mt-2 text-base leading-relaxed text-white/90 sm:text-xl md:text-[2.5rem]">
-                คำถามเพียง <span className="font-semibold">3 นาที</span>
+      {/* ─── CTA: Assessment ─── */}
+      <section className="relative py-20 sm:py-28">
+        <div className="mx-auto w-full max-w-5xl px-6">
+          <div className="grid gap-14 lg:grid-cols-2 items-center">
+            <div>
+              <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.3]">
+                คำถามเพียง <span className="text-[var(--luxury-accent)]">3 นาที</span>
                 <br />
-                ที่จะพาคุณออกไปจากจุดเดิม
-              </p>
+                <span className="text-white/50 font-normal text-lg md:text-2xl">ที่จะพาคุณออกจากจุดเดิม</span>
+              </h2>
 
-              <div className="mt-6 space-y-3 text-sm text-white/75 sm:text-base md:text-lg">
+              <div className="mt-8 space-y-3">
                 {[
-                  "เพื่อกำหนดทิศทางได้แม่นยำขึ้น",
-                  "เพิ่มโอกาสในการปิดการขายได้มากขึ้น",
-                  "ที่จะมีเครื่องมือที่ดีกว่าเดิม",
+                  "กำหนดทิศทางได้แม่นยำขึ้น",
+                  "เพิ่มโอกาสปิดการขาย",
+                  "มีเครื่องมือที่ดีกว่าเดิม",
                 ].map((item) => (
-                  <div key={item} className="flex items-center justify-center gap-3 sm:items-start sm:justify-start">
-                    <span className="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white/80">
-                      ✓
-                    </span>
-                    <p className="text-center sm:text-left">{item}</p>
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--luxury-accent)]/10 text-[var(--luxury-accent)] text-xs">✓</span>
+                    <p className="text-white/50 text-sm">{item}</p>
                   </div>
                 ))}
               </div>
 
               <Link
                 href="/quiz/lead-info"
-                className="btn-luxury group mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[var(--luxury-accent)] px-7 py-3 text-base font-semibold text-[#0A0A0A] sm:w-auto sm:px-9 sm:py-4 sm:text-lg md:px-10 md:text-2xl"
+                className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
               >
-                <span className="relative z-10">เริ่มประเมิน (ฟรี)</span>
-                <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-300 group-hover:rotate-45 sm:h-10 sm:w-10">
-                  →
-                </span>
+                เริ่มประเมิน (ฟรี)
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#0A0A0A]/20 transition-transform duration-300 group-hover:rotate-45">→</span>
               </Link>
             </div>
 
-            <div className="relative">
-              <div className="absolute -right-4 -top-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#76851f] text-black shadow-luxury-md">
-                ✓
+            {/* Score preview card */}
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 md:p-8">
+              <p className="text-xs text-white/40 uppercase tracking-wider">Market Signal Score</p>
+
+              <div className="mt-6 flex items-center justify-center">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-[var(--luxury-accent)]/30 text-2xl font-bold text-[var(--luxury-accent)]">
+                  89%
+                </div>
               </div>
 
-              <div className="card-luxury w-full rounded-3xl p-5 md:p-6">
-                <p className="text-sm text-white/70">
-                  สถานะ Market Signal ของคุณ
-                </p>
+              <p className="mt-4 text-center text-sm font-medium text-white/70">
+                พร้อมเติบโตอย่างมีทิศทาง
+              </p>
 
-                <div className="mt-4 flex items-center justify-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-white/20 text-lg font-semibold text-[var(--luxury-accent)]">
-                    89%
-                  </div>
-                </div>
-
-                <p className="mt-3 text-center text-sm font-semibold">
-                  พร้อมเติบโตอย่างมีทิศทาง
-                </p>
-
-                <div className="mt-4 space-y-3 text-xs text-white/70">
-                  {[
-                    { label: "ทิศทางตลาด", value: "88%" },
-                    { label: "ตำแหน่งทางตลาด", value: "87%" },
-                    { label: "ข้อมูลในการตัดสินใจ", value: "92%" },
-                  ].map((item) => (
-                    <div key={item.label} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span>{item.label}</span>
-                        <span className="text-white/60">{item.value}</span>
-                      </div>
-                      <div className="progress-luxury h-2 w-full">
-                        <div
-                          className="progress-luxury-bar h-2 rounded-full"
-                          style={{ width: item.value }}
-                        />
-                      </div>
+              <div className="mt-6 space-y-4">
+                {[
+                  { label: "ทิศทางตลาด", value: "88%" },
+                  { label: "ตำแหน่งทางตลาด", value: "87%" },
+                  { label: "ข้อมูลในการตัดสินใจ", value: "92%" },
+                ].map((item) => (
+                  <div key={item.label} className="space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-white/40">{item.label}</span>
+                      <span className="text-white/30">{item.value}</span>
                     </div>
-                  ))}
-                </div>
+                    <div className="h-1 w-full rounded-full bg-white/[0.04]">
+                      <div
+                        className="h-1 rounded-full bg-[var(--luxury-accent)]/60"
+                        style={{ width: item.value }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -145,235 +113,163 @@ export default function LandingHeroClonePage() {
       </section>
 
       <ResultsSection />
-
       <ValueStatementSection />
 
-      <section id="about" className="relative overflow-hidden bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
-            <div className="image-luxury relative overflow-hidden rounded-2xl bg-[var(--luxury-bg-elevated-2)] aspect-[4/5]">
+      {/* ─── About ─── */}
+      <section id="about" className="relative py-20 sm:py-28 scroll-mt-24">
+        <div className="mx-auto w-full max-w-5xl px-6">
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+            <div className="relative overflow-hidden rounded-2xl bg-[var(--luxury-bg-elevated-2)] aspect-[3/4] max-w-[400px]">
               <Image
                 src="/landing-hero/profile (25).png"
                 alt="ORIGO profile"
                 width={640}
                 height={720}
-                className="h-full w-full object-cover object-[75%_100%] scale-[1.16] -translate-y-[4%] transition-transform duration-500"
+                className="h-full w-full object-cover object-[75%_100%] scale-[1.1] transition-transform duration-500"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-white/10" />
             </div>
 
             <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-white/60">
-                ABOUT ME
-              </div>
-              <h2 className="font-heading text-2xl leading-tight text-white sm:text-4xl md:text-6xl max-w-3xl">
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/30 mb-4">
+                About
+              </p>
+              <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.3]">
                 ประสบการณ์{" "}
-                <span className="whitespace-nowrap font-semibold text-[var(--luxury-accent)]">
-                  18 ปี
-                </span>
+                <span className="text-[var(--luxury-accent)]">18 ปี</span>
                 <br />
-                จากการทำตลาด
-                <br />
-                และความสำเร็จจริง
+                จากการทำตลาดและความสำเร็จจริง
               </h2>
-              <p className="mt-6 text-base text-white/65 sm:text-xl md:text-3xl">
-                เราจะอยู่เป็นส่วนหนึ่งในทีมของคุณ
-                <br />
-                ทุกการตัดสินใจที่สำคัญ
+              <p className="mt-6 text-white/40 text-sm md:text-base leading-relaxed">
+                เราจะอยู่เป็นส่วนหนึ่งในทีมของคุณ ทุกการตัดสินใจที่สำคัญ
               </p>
               <Link
                 href="/who-we-are"
-                className="btn-luxury mt-8 inline-flex w-full items-center justify-center rounded-md bg-[var(--luxury-accent)] px-7 py-3 text-base font-semibold text-[#0A0A0A] leading-none sm:w-auto sm:px-10 sm:py-4 sm:text-lg md:text-2xl"
+                className="mt-8 inline-flex items-center px-8 py-3 rounded-full bg-[var(--luxury-accent)] text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110"
               >
-                <span className="relative z-10">ทำความรู้จัก ORIGO</span>
+                ทำความรู้จัก ORIGO
               </Link>
             </div>
           </div>
 
-          <div className="mt-12 grid gap-8 pt-10 md:grid-cols-3 text-left">
-            <div>
-              <p className="text-2xl font-semibold text-white sm:text-4xl md:text-6xl">
-                165+
-              </p>
-              <p className="mt-2 text-xl text-white/85 sm:text-2xl md:text-3xl">ประเทศ</p>
-              <p className="mt-3 text-base text-white/50 sm:text-lg">
-                ครอบคลุมวิเคราะห์สัญญาณ
-                <br />
-                ตลาดจากหลายภูมิภาคทั่วโลก
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold text-white sm:text-4xl md:text-6xl">
-                18+
-              </p>
-              <p className="mt-2 text-xl text-white/85 sm:text-2xl md:text-3xl">ปี</p>
-              <p className="mt-3 text-base text-white/50 sm:text-lg">
-                ประสบการณ์จริงในการทำ
-                <br />
-                Go-to-Market ระดับสากล
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold text-white sm:text-4xl md:text-6xl">
-                70,000+
-              </p>
-              <p className="mt-2 text-xl text-white/85 sm:text-2xl md:text-3xl">พาร์ตเนอร์</p>
-              <p className="mt-3 text-base text-white/50 sm:text-lg">
-                เครือข่ายการค้าและซัพพลายเชน
-                <br />
-                ที่เชื่อมโยงกันจริง
-              </p>
-            </div>
+          {/* Stats */}
+          <div className="mt-16 grid grid-cols-3 gap-8 text-center md:text-left">
+            {[
+              { num: "165+", label: "ประเทศ", desc: "วิเคราะห์สัญญาณตลาดทั่วโลก" },
+              { num: "18+", label: "ปี", desc: "ประสบการณ์ Go-to-Market ระดับสากล" },
+              { num: "70K+", label: "พาร์ตเนอร์", desc: "เครือข่ายการค้าที่เชื่อมโยงกันจริง" },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="text-2xl md:text-3xl font-bold text-white">{s.num}</p>
+                <p className="mt-1 text-sm text-white/60">{s.label}</p>
+                <p className="mt-2 text-xs text-white/30 hidden md:block">{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="services" className="relative bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-          <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:items-stretch">
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <p className="text-xl text-white/85 sm:text-2xl md:text-[2.875rem]">ช่วยคุณ</p>
-                <h2 className="font-heading text-2xl font-semibold leading-tight text-[var(--luxury-accent)] sm:text-4xl md:text-6xl md:whitespace-nowrap">
-                  วิเคราะห์และเลือกตลาด
-                </h2>
-                <p className="text-xl text-white/85 sm:text-2xl md:text-[2.875rem]">
-                  รวมถึงผู้ซื้อจากทั่วโลก
-                </p>
-              </div>
+      {/* ─── Services ─── */}
+      <section id="services" className="relative py-20 sm:py-28 scroll-mt-24">
+        <div className="mx-auto w-full max-w-5xl px-6">
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+            <div>
+              <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.3]">
+                ช่วยคุณ
+                <span className="text-[var(--luxury-accent)]"> วิเคราะห์และเลือกตลาด</span>
+                <br />
+                <span className="text-white/50 font-normal text-lg md:text-2xl">รวมถึงผู้ซื้อจากทั่วโลก</span>
+              </h2>
 
-              <p className="text-lg text-white/60 sm:text-xl md:text-[2.175rem] md:whitespace-nowrap">
-                ให้คุณเข้าถึงกลุ่มลูกค้าเป้าหมายได้รวดเร็ว
-              </p>
-
-              <div className="space-y-4 text-base text-white/60 sm:text-lg md:text-[1.9575rem] md:whitespace-nowrap">
+              <div className="mt-8 space-y-4">
                 {[
-                  {
-                    th: "มองเห็น",
-                    en: "Market Signal",
-                    icon: "/landing-hero/4.png",
-                    alt: "Market signal icon",
-                  },
-                  {
-                    th: "เลือกให้ถูก",
-                    en: "Customer & Market Focus",
-                    icon: "/landing-hero/5.png",
-                    alt: "Market focus icon",
-                  },
-                  {
-                    th: "ตัดสินใจอย่างมั่นใจ",
-                    en: "Decision Clarity",
-                    icon: "/landing-hero/6.png",
-                    alt: "Decision clarity icon",
-                  },
+                  { th: "มองเห็น", en: "Market Signal", icon: "/landing-hero/4.png" },
+                  { th: "เลือกให้ถูก", en: "Customer & Market Focus", icon: "/landing-hero/5.png" },
+                  { th: "ตัดสินใจอย่างมั่นใจ", en: "Decision Clarity", icon: "/landing-hero/6.png" },
                 ].map((item) => (
-                  <div key={item.en} className="flex items-start gap-3">
-                    <img
-                      src={item.icon}
-                      alt={item.alt}
-                      className="mt-1 h-10 w-10"
-                    />
-                    <p>
-                      <span className="text-white">{item.th}</span>
-                      <span className="text-white/60"> - {item.en}</span>
+                  <div key={item.en} className="flex items-center gap-3">
+                    <img src={item.icon} alt={item.en} className="h-8 w-8 opacity-80" />
+                    <p className="text-sm">
+                      <span className="text-white/70 font-medium">{item.th}</span>
+                      <span className="text-white/30 ml-2">{item.en}</span>
                     </p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="image-luxury relative w-full aspect-[7/6] overflow-hidden rounded-[36px]">
-              <Image
-                src="/2.png"
-                alt="Market insight overview"
-                fill
-                className="object-cover object-center"
-              />
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image src="/2.png" alt="Market insight" fill className="object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-7xl px-6 mobile-shell desktop-shell">
-          <div className="text-center">
-            <h2 className="font-heading text-3xl text-white sm:text-4xl md:text-5xl">
+      {/* ─── Testimonials ─── */}
+      <section className="relative py-20 sm:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="text-center mb-6">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">
               ผลลัพธ์จากลูกค้าของเรา
             </h2>
-            <p className="mt-2 text-sm text-white/50">
-              (อ้างอิงจากกรณีจริง ขอสงวนสิทธิ์ไม่เปิดเผยชื่อ)
+            <p className="mt-2 text-xs text-white/30">
+              อ้างอิงจากกรณีจริง ขอสงวนสิทธิ์ไม่เปิดเผยชื่อ
             </p>
           </div>
-
           <TestimonialsCarousel />
         </div>
       </section>
 
-      <section id="contact" className="relative bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20 scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-          <div className="rounded-3xl border border-luxury-subtle bg-[var(--luxury-bg-elevated-2)] px-6 py-12 text-center shadow-luxury-xl sm:px-10 sm:py-16">
-            <h2 className="font-heading text-xl font-semibold text-white sm:text-3xl md:text-5xl">
+      {/* ─── Contact CTA ─── */}
+      <section id="contact" className="relative py-20 sm:py-28 scroll-mt-24">
+        <div className="mx-auto w-full max-w-3xl px-6 text-center">
+          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-8 py-16 md:px-16">
+            <h2 className="font-heading text-xl md:text-3xl font-bold text-white">
               จองเวลาเพื่อคุยกับเรา
             </h2>
-            <p className="mt-3 text-base text-white/70 sm:text-xl md:text-3xl">
+            <p className="mt-3 text-white/40 text-sm md:text-base">
               ว่าธุรกิจของคุณ ควรวางแผนการเติบโตอย่างไร
             </p>
 
             <Link
               href="/contact"
-              className="btn-luxury mt-6 inline-flex w-full items-center justify-center rounded-full bg-[var(--luxury-accent)] px-7 py-3 text-base font-semibold text-[#0A0A0A] sm:w-auto sm:px-12 sm:py-5 sm:text-xl"
+              className="mt-8 inline-flex items-center px-10 py-4 rounded-full bg-[var(--luxury-accent)] text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
             >
-              <span className="relative z-10">จองเวลา</span>
+              จองเวลา
             </Link>
 
-            <p className="mt-4 text-sm text-white/40 sm:text-lg">
-              (จำกัด 5 บริษัทต่อเดือน)
-            </p>
+            <p className="mt-4 text-white/20 text-xs">จำกัด 5 บริษัทต่อเดือน</p>
           </div>
         </div>
       </section>
 
-      <section className="relative bg-[var(--luxury-bg-elevated-1)] py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-6xl px-6 mobile-shell desktop-shell">
-          <div className="text-center">
-            <div className="inline-flex flex-col items-center gap-6">
-              <div>
-                <p className="text-2xl font-semibold tracking-tight text-white">
-                  ORIG<span className="text-[var(--luxury-accent)]">O</span>
-                </p>
-                <p className="mt-3 text-sm text-[var(--luxury-text-tertiary)]">
-                  Market Intelligence for International Trade
-                </p>
-              </div>
+      {/* ─── Footer ─── */}
+      <footer className="py-12">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="text-lg font-semibold text-white/80 tracking-tight">
+            ORIG<span className="text-[var(--luxury-accent)]">O</span>
+          </p>
+          <p className="mt-2 text-xs text-white/20">
+            Market Intelligence for International Trade
+          </p>
 
-              <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--luxury-text-tertiary)]">
-                {[
-                  { label: 'เกี่ยวกับเรา', href: '#about' },
-                  { label: 'ผลลัพธ์', href: '#results' },
-                  { label: 'บริการ', href: '#services' }
-                ].map((link, index, arr) => (
-                  <span key={link.label} className="flex items-center gap-6">
-                    <a
-                      href={link.href}
-                      className="link-luxury hover:text-[var(--luxury-accent)] transition-colors duration-300"
-                    >
-                      {link.label}
-                    </a>
-                    {index < arr.length - 1 && (
-                      <span className="text-[var(--luxury-text-disabled)]">·</span>
-                    )}
-                  </span>
-                ))}
-              </nav>
+          <nav className="mt-6 flex items-center justify-center gap-6 text-xs text-white/25">
+            {[
+              { label: "เกี่ยวกับเรา", href: "#about" },
+              { label: "บริการ", href: "#services" },
+              { label: "ผลลัพธ์", href: "#results" },
+            ].map((link, i, arr) => (
+              <span key={link.label} className="flex items-center gap-6">
+                <a href={link.href} className="hover:text-white/50 transition-colors">{link.label}</a>
+                {i < arr.length - 1 && <span className="text-white/10">·</span>}
+              </span>
+            ))}
+          </nav>
 
-              <p className="text-xs text-[var(--luxury-text-disabled)]">
-                © 2026 ORIGO. All rights reserved.
-              </p>
-            </div>
-          </div>
+          <p className="mt-8 text-[10px] text-white/10">
+            © 2026 ORIGO. All rights reserved.
+          </p>
         </div>
-      </section>
-
+      </footer>
     </main>
   );
 }
