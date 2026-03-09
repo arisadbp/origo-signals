@@ -58,8 +58,9 @@ export default function TopNav() {
           </nav>
 
           <div className="hidden items-center md:flex">
-            <Link href="/contact" className="btn-gold">
+            <Link href="/contact" className="btn-gold inline-flex items-center gap-2">
               จองเวลา
+              <ArrowRight size={18} />
             </Link>
           </div>
 
