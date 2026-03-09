@@ -174,8 +174,8 @@ function HeroSection() {
           Design the 92%
         </p>
 
-        <p className="mt-8 animate-fade-in-up text-white/50 text-sm md:text-base max-w-md leading-relaxed" style={{ animationDelay: "0.5s" }}>
-          โฟกัสสิ่งที่สำคัญ ให้ระบบจัดการส่วนที่เหลือ
+        <p className="mt-8 animate-fade-in-up text-white/50 text-sm md:text-base max-w-lg leading-relaxed" style={{ animationDelay: "0.5s" }}>
+          We help businesses focus on what truly drives growth — customers, relationships, and strategy — while intelligent systems handle everything else.
         </p>
 
         {/* Single CTA */}
@@ -184,7 +184,7 @@ function HeroSection() {
             href="#about"
             className="group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
           >
-            เริ่มต้นกับ ORIGO
+            Start with ORIGO
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#0A0A0A]/20 transition-transform duration-300 group-hover:rotate-45">
               →
             </span>
@@ -237,25 +237,28 @@ function AboutSection() {
             </p>
 
             <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.2]">
-              ประสบการณ์กว่า{" "}
-              <span className="text-[var(--luxury-accent)]">18 ปี</span>
+              Over{" "}
+              <span className="text-[var(--luxury-accent)]">18 years</span>
               <br />
-              ในการค้าระหว่างประเทศ
+              in international trade
             </h2>
 
             <div className="mt-6 w-12 h-px bg-white/10" />
 
             <p className="mt-6 text-white/50 text-sm md:text-base leading-[1.9]">
-              ทำงานใกล้ชิดกับผู้ผลิต ผู้ส่งออก และผู้ซื้อรายใหญ่
-              ทั่วโลกในหลากหลายอุตสาหกรรม
+              Our leadership team has deep expertise in export and global trade, specializing in matching manufacturers, exporters, and major buyers across industries worldwide.
+            </p>
+
+            <p className="mt-4 text-white/40 text-sm md:text-base leading-[1.9]">
+              In 2024, we combined these capabilities to create ORIGO — a service that helps SME businesses reach target customers in global markets faster and grow sustainably.
             </p>
 
             {/* Stats — minimal */}
             <div className="mt-10 flex gap-10">
               {[
-                { val: 18, suf: "+", lab: "ปี" },
-                { val: 165, suf: "+", lab: "ประเทศ" },
-                { val: 70, suf: "K+", lab: "พาร์ตเนอร์" },
+                { val: 18, suf: "+", lab: "Years" },
+                { val: 165, suf: "+", lab: "Countries" },
+                { val: 70, suf: "K+", lab: "Partners" },
               ].map((s) => (
                 <div key={s.lab}>
                   <p className="text-xl md:text-2xl font-bold text-white">
@@ -289,10 +292,11 @@ function ExperienceSection() {
             Our Insight
           </p>
           <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.3] max-w-2xl">
-            ธุรกิจไม่โตจากการทำทุกอย่างพร้อมกัน
-            <br />
-            <span className="text-white/40 font-normal text-lg md:text-2xl">แต่จากการโฟกัสสิ่งที่ถูกต้อง</span>
+            Growth doesn&apos;t come from doing everything at once
           </h2>
+          <p className="mt-3 text-white/40 text-base md:text-lg max-w-xl">
+            It comes from focusing on what truly matters
+          </p>
         </div>
 
         {/* 92% vs 8% comparison */}
@@ -305,9 +309,9 @@ function ExperienceSection() {
             <div className="text-center md:text-right md:pr-12">
               <span className="text-5xl md:text-7xl font-black text-white/[0.07] leading-none">92%</span>
               <p className="mt-3 text-white/30 text-sm leading-relaxed max-w-xs mx-auto md:ml-auto md:mr-0">
-                งาน Operational ที่ระบบจัดการได้
+                Operational work that systems can handle
                 <br />
-                <span className="text-white/20">ข้อมูล · กระบวนการ · การประสานงาน</span>
+                <span className="text-white/20">Data · Processes · Coordination</span>
               </p>
             </div>
 
@@ -336,9 +340,9 @@ function ExperienceSection() {
                 8%
               </span>
               <p className="relative mt-3 text-white/70 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-                สิ่งที่ขับเคลื่อนการเติบโตจริง
+                What truly drives long-term growth
                 <br />
-                <span className="text-[var(--luxury-accent)]/70 font-medium">ลูกค้า · ความสัมพันธ์ · กลยุทธ์</span>
+                <span className="text-[var(--luxury-accent)]/70 font-medium">Customers · Relationships · Strategy</span>
               </p>
             </div>
           </div>
@@ -356,17 +360,17 @@ function HowItWorksSection() {
     {
       num: "01",
       title: "Get Clarity",
-      body: "เปลี่ยนข้อมูลตลาดให้เป็นภาพที่เข้าใจง่าย รู้ว่าอยู่ตรงไหน โอกาสอยู่ที่ใด",
+      body: "Transform complex market data into clear, actionable visuals. Know exactly where you stand and where the opportunities are.",
     },
     {
       num: "02",
       title: "Get Connected",
-      body: "ค้นหาประเทศและผู้ซื้อที่เหมาะกับธุรกิจ เข้าถึงตลาดใหม่อย่างมีทิศทาง",
+      body: "Discover the right countries and buyers for your business. Access new markets with precision targeting and verified contacts.",
     },
     {
       num: "03",
       title: "Get Ahead",
-      body: "แนะนำก้าวต่อไป พร้อมอัปเดตข้อมูลตลาดและคำแนะนำเชิงกลยุทธ์ต่อเนื่อง",
+      body: "Stay ahead with continuous market intelligence, strategic recommendations, and a clear roadmap for your next move.",
     },
   ];
 
@@ -382,8 +386,11 @@ function HowItWorksSection() {
             How It Works
           </p>
           <h2 className="font-heading text-2xl md:text-4xl font-bold text-white">
-            ORIGO ทำงานอย่างไร
+            Three steps to global growth
           </h2>
+          <p className="mt-3 text-white/40 text-sm md:text-base max-w-md mx-auto">
+            A simple, guided process designed to unlock your international potential
+          </p>
         </div>
 
         {/* Cards */}
@@ -413,7 +420,7 @@ function HowItWorksSection() {
             href="/signals"
             className="group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
           >
-            เริ่มต้นกับ Origo Signals
+            Start with Origo Signals
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#0A0A0A]/20 transition-transform duration-300 group-hover:rotate-45">
               →
             </span>
@@ -434,22 +441,22 @@ function CorporateFooter() {
         </p>
 
         <h2 className="font-heading text-2xl md:text-4xl font-bold text-white">
-          พร้อมเติบโตไปด้วยกัน?
+          Ready to grow together?
         </h2>
 
         <p className="mt-4 text-white/40 text-sm md:text-base max-w-md mx-auto">
-          จองเวลาเพื่อคุยว่าธุรกิจของคุณควรวางแผนอย่างไร
+          Book a consultation to discover how ORIGO can help your business expand into global markets with clarity and confidence.
         </p>
 
         <Link
           href="/contact"
           className="mt-10 inline-flex items-center px-10 py-4 rounded-full bg-[var(--luxury-accent)] text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
         >
-          จองเวลาคุยกับเรา
+          Book a Consultation
         </Link>
 
         <p className="mt-4 text-white/20 text-xs">
-          จำกัด 5 บริษัทต่อเดือน
+          Limited to 5 companies per month
         </p>
       </div>
 
