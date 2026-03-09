@@ -202,9 +202,9 @@ export default function GlobalMarketDashboard() {
       </div>
 
       {/* Chart */}
-      <div className="relative flex-grow w-full min-h-[140px] md:min-h-[180px]">
+      <div className="relative flex-1 w-full min-h-0">
         <div className="absolute top-0 left-1 z-20 pointer-events-none">
-          <h4 className="text-base md:text-lg font-bold leading-tight">
+          <h4 className="text-sm md:text-base font-bold leading-tight">
             Market<br />
             <span className="text-[var(--luxury-accent)] font-normal">Insight</span>
           </h4>
