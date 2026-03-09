@@ -291,8 +291,8 @@ export default function GlobalMarketDashboard() {
       </div>
 
       {/* Product Overview */}
-      <div className="bg-[#111111] rounded-xl p-5 mt-2 z-10">
-        <h4 className="text-lg md:text-xl font-bold mb-4 tracking-wide">
+      <div className="bg-[#111111] rounded-xl p-3 md:p-4 mt-1 z-10 shrink-0">
+        <h4 className="text-sm md:text-base font-bold mb-2 tracking-wide">
           Product <span className="text-[var(--luxury-accent)]">Overview</span>
         </h4>
         <div className="grid grid-cols-3 gap-4">
