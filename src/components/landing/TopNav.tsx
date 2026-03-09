@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 const links = [
   { label: "บริการ", href: "#services" },
@@ -57,8 +58,9 @@ export default function TopNav() {
           </nav>
 
           <div className="hidden items-center md:flex">
-            <Link href="/contact" className="btn-gold">
+            <Link href="/contact" className="btn-gold inline-flex items-center gap-2">
               จองเวลา
+              <ArrowRight size={18} />
             </Link>
           </div>
 
@@ -129,10 +131,11 @@ export default function TopNav() {
           ))}
           <Link
             href="/contact"
-            className="btn-gold"
+            className="btn-gold inline-flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
             จองเวลา
+            <ArrowRight size={18} />
           </Link>
         </div>
       </div>
