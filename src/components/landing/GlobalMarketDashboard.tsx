@@ -306,7 +306,7 @@ export default function GlobalMarketDashboard() {
           </div>
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Destination</span>
-            <span className="text-2xl md:text-3xl font-bold text-[var(--luxury-accent)] leading-none">{destVal}</span>
+            <span className="text-xl md:text-2xl font-bold text-[var(--luxury-accent)] leading-none">{destVal}</span>
           </div>
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Customers</span>
