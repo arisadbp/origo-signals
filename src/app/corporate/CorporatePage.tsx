@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import TopNav from "@/components/landing/TopNav";
 
 /* ─── Scroll-reveal hook ─── */
 function useReveal(threshold = 0.15) {
