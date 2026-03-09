@@ -148,7 +148,7 @@ export default function GlobalMarketDashboard() {
       </div>
 
       {/* World Maps */}
-      <div className="flex justify-between items-center w-full px-1 mb-3 z-10">
+      <div className="flex justify-between items-center w-full px-1 mb-2 z-10">
         {MAP_REGIONS.map((regions, mapIdx) => (
           <div key={mapIdx} className="w-[31%] aspect-[2/1] relative">
             <div
