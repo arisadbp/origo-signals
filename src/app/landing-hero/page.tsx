@@ -4,6 +4,7 @@ import TestimonialsCarousel from "@/components/landing/TestimonialsCarousel";
 import TopNav from "@/components/landing/TopNav";
 import ValueStatementSection from "@/components/landing/ValueStatementSection";
 import ResultsSection from "@/components/landing/ResultsSection";
+import GlobalMarketDashboard from "@/components/landing/GlobalMarketDashboard";
 
 export default function LandingHeroClonePage() {
   return (
