@@ -360,17 +360,17 @@ function HowItWorksSection() {
     {
       num: "01",
       title: "Get Clarity",
-      body: "เปลี่ยนข้อมูลตลาดให้เป็นภาพที่เข้าใจง่าย รู้ว่าอยู่ตรงไหน โอกาสอยู่ที่ใด",
+      body: "Transform complex market data into clear, actionable visuals. Know exactly where you stand and where the opportunities are.",
     },
     {
       num: "02",
       title: "Get Connected",
-      body: "ค้นหาประเทศและผู้ซื้อที่เหมาะกับธุรกิจ เข้าถึงตลาดใหม่อย่างมีทิศทาง",
+      body: "Discover the right countries and buyers for your business. Access new markets with precision targeting and verified contacts.",
     },
     {
       num: "03",
       title: "Get Ahead",
-      body: "แนะนำก้าวต่อไป พร้อมอัปเดตข้อมูลตลาดและคำแนะนำเชิงกลยุทธ์ต่อเนื่อง",
+      body: "Stay ahead with continuous market intelligence, strategic recommendations, and a clear roadmap for your next move.",
     },
   ];
 
@@ -386,8 +386,11 @@ function HowItWorksSection() {
             How It Works
           </p>
           <h2 className="font-heading text-2xl md:text-4xl font-bold text-white">
-            ORIGO ทำงานอย่างไร
+            Three steps to global growth
           </h2>
+          <p className="mt-3 text-white/40 text-sm md:text-base max-w-md mx-auto">
+            A simple, guided process designed to unlock your international potential
+          </p>
         </div>
 
         {/* Cards */}
@@ -417,7 +420,7 @@ function HowItWorksSection() {
             href="/signals"
             className="group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
           >
-            เริ่มต้นกับ Origo Signals
+            Start with Origo Signals
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#0A0A0A]/20 transition-transform duration-300 group-hover:rotate-45">
               →
             </span>
