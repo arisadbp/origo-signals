@@ -237,25 +237,28 @@ function AboutSection() {
             </p>
 
             <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.2]">
-              ประสบการณ์กว่า{" "}
-              <span className="text-[var(--luxury-accent)]">18 ปี</span>
+              Over{" "}
+              <span className="text-[var(--luxury-accent)]">18 years</span>
               <br />
-              ในการค้าระหว่างประเทศ
+              in international trade
             </h2>
 
             <div className="mt-6 w-12 h-px bg-white/10" />
 
             <p className="mt-6 text-white/50 text-sm md:text-base leading-[1.9]">
-              ทำงานใกล้ชิดกับผู้ผลิต ผู้ส่งออก และผู้ซื้อรายใหญ่
-              ทั่วโลกในหลากหลายอุตสาหกรรม
+              Our leadership team has deep expertise in export and global trade, specializing in matching manufacturers, exporters, and major buyers across industries worldwide.
+            </p>
+
+            <p className="mt-4 text-white/40 text-sm md:text-base leading-[1.9]">
+              In 2024, we combined these capabilities to create ORIGO — a service that helps SME businesses reach target customers in global markets faster and grow sustainably.
             </p>
 
             {/* Stats — minimal */}
             <div className="mt-10 flex gap-10">
               {[
-                { val: 18, suf: "+", lab: "ปี" },
-                { val: 165, suf: "+", lab: "ประเทศ" },
-                { val: 70, suf: "K+", lab: "พาร์ตเนอร์" },
+                { val: 18, suf: "+", lab: "Years" },
+                { val: 165, suf: "+", lab: "Countries" },
+                { val: 70, suf: "K+", lab: "Partners" },
               ].map((s) => (
                 <div key={s.lab}>
                   <p className="text-xl md:text-2xl font-bold text-white">
