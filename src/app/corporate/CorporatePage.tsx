@@ -56,7 +56,7 @@ function HeroSection() {
         {/* Logo + Tagline — horizontal layout matching reference */}
         <div className="animate-fade-in-up flex items-center gap-4 md:gap-6" style={{ animationDelay: "0.1s" }}>
           {/* Animated Logo Icon — tighter viewBox for proper alignment */}
-          <div className="shrink-0 w-[100px] h-[100px] md:w-[160px] md:h-[160px] lg:w-[200px] lg:h-[200px]">
+          <div className="shrink-0 w-[100px] h-[100px] md:w-[160px] md:h-[160px] lg:w-[200px] lg:h-[200px] -mt-4 md:-mt-6">
             <svg viewBox="15 15 160 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
               <circle
                 className="animate-[squishRing_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate_0.3s]"
