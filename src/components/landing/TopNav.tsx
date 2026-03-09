@@ -5,15 +5,28 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-const links = [
+interface TopNavProps {
+  links?: { label: string; href: string }[];
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaExternal?: boolean;
+}
+
+const defaultLinks = [
   { label: "บริการ", href: "#services" },
   { label: "ผลลัพธ์", href: "#results" },
   { label: "เกี่ยวกับเรา", href: "#about" },
 ];
 
-export default function TopNav() {
+export default function TopNav({
+  links: customLinks,
+  ctaLabel = "จองเวลา",
+  ctaHref = "/contact",
+  ctaExternal = false,
+}: TopNavProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navLinks = customLinks || defaultLinks;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -21,6 +34,10 @@ export default function TopNav() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const ctaProps = ctaExternal
+    ? { target: "_blank" as const, rel: "noopener noreferrer" }
+    : {};
 
   return (
     <>
@@ -46,7 +63,7 @@ export default function TopNav() {
           </div>
 
           <nav className="hidden flex-1 items-center justify-center gap-8 md:flex">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -58,10 +75,17 @@ export default function TopNav() {
           </nav>
 
           <div className="hidden items-center md:flex">
-            <Link href="/contact" className="btn-gold inline-flex items-center gap-2">
-              จองเวลา
-              <ArrowRight size={18} />
-            </Link>
+            {ctaExternal ? (
+              <a href={ctaHref} {...ctaProps} className="btn-gold inline-flex items-center gap-2">
+                {ctaLabel}
+                <ArrowRight size={18} />
+              </a>
+            ) : (
+              <Link href={ctaHref} className="btn-gold inline-flex items-center gap-2">
+                {ctaLabel}
+                <ArrowRight size={18} />
+              </Link>
+            )}
           </div>
 
           <button
@@ -73,31 +97,12 @@ export default function TopNav() {
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >
             {isMenuOpen ? (
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 6l12 12" />
-                <path d="M18 6l-12 12" />
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 6l12 12" /><path d="M18 6l-12 12" />
               </svg>
             ) : (
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M3 6h18" />
-                <path d="M3 12h18" />
-                <path d="M3 18h18" />
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" />
               </svg>
             )}
           </button>
@@ -119,7 +124,7 @@ export default function TopNav() {
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -129,14 +134,26 @@ export default function TopNav() {
               {link.label}
             </a>
           ))}
-          <Link
-            href="/contact"
-            className="btn-gold inline-flex items-center gap-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            จองเวลา
-            <ArrowRight size={18} />
-          </Link>
+          {ctaExternal ? (
+            <a
+              href={ctaHref}
+              {...ctaProps}
+              className="btn-gold inline-flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {ctaLabel}
+              <ArrowRight size={18} />
+            </a>
+          ) : (
+            <Link
+              href={ctaHref}
+              className="btn-gold inline-flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {ctaLabel}
+              <ArrowRight size={18} />
+            </Link>
+          )}
         </div>
       </div>
     </>
