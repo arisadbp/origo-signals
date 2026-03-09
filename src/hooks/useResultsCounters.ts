@@ -36,6 +36,7 @@ export function useResultsCounters() {
 
   return {
     ref,
+    isInView,
     totalSales: formatCount(totalSales),
     customerGrowth: formatCount(customerGrowth),
     cacReduction: formatCount(cacReduction),

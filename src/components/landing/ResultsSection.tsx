@@ -4,7 +4,7 @@ import { useResultsCounters } from "@/hooks/useResultsCounters";
 import AnimatedResultsChart from "@/components/landing/AnimatedResultsChart";
 
 export default function ResultsSection() {
-  const { ref, totalSales, customerGrowth, cacReduction } =
+  const { ref, isInView, totalSales, customerGrowth, cacReduction } =
     useResultsCounters();
 
   return (
