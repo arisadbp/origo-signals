@@ -174,8 +174,8 @@ function HeroSection() {
           Design the 92%
         </p>
 
-        <p className="mt-8 animate-fade-in-up text-white/50 text-sm md:text-base max-w-md leading-relaxed" style={{ animationDelay: "0.5s" }}>
-          โฟกัสสิ่งที่สำคัญ ให้ระบบจัดการส่วนที่เหลือ
+        <p className="mt-8 animate-fade-in-up text-white/50 text-sm md:text-base max-w-lg leading-relaxed" style={{ animationDelay: "0.5s" }}>
+          We help businesses focus on what truly drives growth — customers, relationships, and strategy — while intelligent systems handle everything else.
         </p>
 
         {/* Single CTA */}
@@ -184,7 +184,7 @@ function HeroSection() {
             href="#about"
             className="group inline-flex items-center gap-3 rounded-full bg-[var(--luxury-accent)] px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
           >
-            เริ่มต้นกับ ORIGO
+            Start with ORIGO
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#0A0A0A]/20 transition-transform duration-300 group-hover:rotate-45">
               →
             </span>
