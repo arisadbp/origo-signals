@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Global Market Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{background:#121212;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:#fff}
+.fade-in-up{opacity:0;transform:translateY(20px);animation:fadeInUp .6s ease-out forwards}
+.pulse-dot-map{transform-origin:center;animation:pulseGlowMap 2s infinite alternate}
+.zoom-out-piece{display:inline-block;opacity:0;animation:zoomOutReveal .5s cubic-bezier(.25,1,.5,1) forwards}
+.data-point,.map-dot-container{transition:opacity .3s ease-in-out}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+@keyframes pulseGlowMap{
+0%{transform:scale(.8);opacity:.6;filter:drop-shadow(0 0 2px #f59e0b)}
+100%{transform:scale(1.3);opacity:1;filter:drop-shadow(0 0 8px #f59e0b)}
+}
+@keyframes zoomOutReveal{
+0%{transform:scale(1.8);opacity:0;filter:blur(4px)}
+100%{transform:scale(1);opacity:1;filter:blur(0)}
+}
+</style>
+</head>
+<body class="antialiased overflow-x-hidden min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-[550px] h-auto bg-[#1a1a1a] rounded-xl shadow-2xl p-6 lg:p-8 flex flex-col relative overflow-hidden border border-[#2a2a2a] cursor-pointer fade-in-up" onclick="playTimeline()">
+<div class="text-center z-10 mb-6">
+<h2 class="text-[28px] font-bold tracking-wide">
+<span class="zoom-out-piece" style="animation-delay:.1s">Global</span>
+<span class="text-[#f59e0b] zoom-out-piece" style="animation-delay:.2s">YOUR</span>
+</h2>
+<div class="zoom-out-piece" style="animation-delay:.3s">
+<p class="text-[13px] text-gray-300 font-light mt-0.5">product to International Market</p>
+</div>
+</div>
+
+<div class="flex justify-between items-center w-full px-2 mb-4 z-10">
+<div class="w-[31%] aspect-[2/1] relative">
+<div class="absolute inset-0 bg-[#52525b]" style="-webkit-mask-image:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');mask-size:contain;mask-repeat:no-repeat;mask-position:center">
+<div class="absolute bg-[#f59e0b] top-[20%] left-[10%] w-[20%] h-[30%] blur-md opacity-80"></div>
+<div class="absolute bg-[#f59e0b] top-[25%] left-[68%] w-[18%] h-[25%] blur-md opacity-80"></div>
+</div>
+<div class="map-dot-container opacity-0 absolute top-[35%] left-[20%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map"></div></div>
+<div class="map-dot-container opacity-0 absolute top-[40%] left-[75%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map" style="animation-delay:.3s"></div></div>
+</div>
+
+<div class="w-[31%] aspect-[2/1] relative">
+<div class="absolute inset-0 bg-[#52525b]" style="-webkit-mask-image:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');mask-size:contain;mask-repeat:no-repeat;mask-position:center">
+<div class="absolute bg-[#f59e0b] top-[55%] left-[25%] w-[15%] h-[30%] blur-md opacity-80"></div>
+<div class="absolute bg-[#f59e0b] top-[40%] left-[65%] w-[15%] h-[25%] blur-md opacity-80"></div>
+</div>
+<div class="map-dot-container opacity-0 absolute top-[65%] left-[32%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map" style="animation-delay:.1s"></div></div>
+<div class="map-dot-container opacity-0 absolute top-[45%] left-[68%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map" style="animation-delay:.5s"></div></div>
+</div>
+
+<div class="w-[31%] aspect-[2/1] relative">
+<div class="absolute inset-0 bg-[#52525b]" style="-webkit-mask-image:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;mask-image:url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg');mask-size:contain;mask-repeat:no-repeat;mask-position:center">
+<div class="absolute bg-[#f59e0b] top-[15%] left-[45%] w-[15%] h-[25%] blur-md opacity-80"></div>
+<div class="absolute bg-[#f59e0b] top-[10%] left-[60%] w-[30%] h-[25%] blur-md opacity-80"></div>
+</div>
+<div class="map-dot-container opacity-0 absolute top-[28%] left-[52%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map" style="animation-delay:.2s"></div></div>
+<div class="map-dot-container opacity-0 absolute top-[22%] left-[70%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map" style="animation-delay:.4s"></div></div>
+<div class="map-dot-container opacity-0 absolute top-[50%] left-[20%]"><div class="w-[3px] h-[3px] bg-[#f59e0b] rounded-full pulse-dot-map" style="animation-delay:.1s"></div></div>
+</div>
+</div>
+
+<div class="relative flex-grow w-full mt-2 min-h-[180px]">
+<div class="absolute top-0 left-2 z-20 pointer-events-none">
+<h3 class="text-[22px] font-bold leading-tight">Market<br><span class="text-[#f59e0b] font-normal">Insight</span></h3>
+</div>
+<div class="w-full h-full absolute inset-0 pt-6 pb-2">
+<svg viewBox="0 0 1000 380" class="w-full h-full overflow-visible" preserveAspectRatio="xMidYMid meet">
+<defs>
+<clipPath id="sweepReveal">
+<rect id="sweepRect" x="0" y="-50" width="1100" height="450" style="transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.25,1,.5,1)"></rect>
+</clipPath>
+<path id="coreLine" d="M 120 280 C 180 265, 220 230, 272 210 C 300 200, 310 190, 348 190 C 380 190, 480 240, 550 240 C 620 240, 700 110, 766 110 C 810 110, 840 60, 880 60 C 920 60, 960 40, 1000 40" fill="none"></path>
+</defs>
+<g opacity=".9">
+<line x1="100" y1="340" x2="980" y2="340" stroke="#4b5563" stroke-width="1.5"></line>
+<text x="75" y="344" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="end">MTS</text>
+<line x1="85" y1="340" x2="85" y2="332" stroke="#4b5563" stroke-width="1.5"></line>
+<line x1="120" y1="340" x2="120" y2="345" stroke="#4b5563" stroke-width="1.5"></line>
+<text x="120" y="365" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">1 M</text>
+<line x1="196" y1="340" x2="196" y2="345" stroke="#4b5563" stroke-width="1.5" opacity=".5"></line>
+<line x1="272" y1="340" x2="272" y2="345" stroke="#4b5563" stroke-width="1.5"></line>
+<text x="272" y="365" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">1.4 M</text>
+<line x1="348" y1="340" x2="348" y2="345" stroke="#4b5563" stroke-width="1.5"></line>
+<text x="348" y="365" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">1.6 M</text>
+<line x1="452" y1="340" x2="452" y2="345" stroke="#4b5563" stroke-width="1.5" opacity=".5"></line>
+<line x1="557" y1="340" x2="557" y2="345" stroke="#4b5563" stroke-width="1.5" opacity=".5"></line>
+<line x1="661" y1="340" x2="661" y2="345" stroke="#4b5563" stroke-width="1.5" opacity=".5"></line>
+<line x1="766" y1="340" x2="766" y2="345" stroke="#4b5563" stroke-width="1.5"></line>
+<text x="766" y="365" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">2.7 M</text>
+<line x1="880" y1="340" x2="880" y2="345" stroke="#4b5563" stroke-width="1.5"></line>
+<text x="880" y="365" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">3 M</text>
+<line x1="980" y1="340" x2="980" y2="332" stroke="#4b5563" stroke-width="1.5"></line>
+</g>
+<g clip-path="url(#sweepReveal)">
+<g stroke="rgba(255,255,255,.15)" stroke-width="1" fill="none">
+<use href="#coreLine" transform="translate(0,2) translate(120,280) scale(1,.95) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,5) translate(120,280) scale(1,.90) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,9) translate(120,280) scale(1,.84) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,14) translate(120,280) scale(1,.77) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,20) translate(120,280) scale(1,.69) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,27) translate(120,280) scale(1,.60) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,35) translate(120,280) scale(1,.50) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,6) translate(120,280) scale(.98,.88) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,15) translate(120,280) scale(.96,.75) translate(-120,-280)"></use>
+<use href="#coreLine" transform="translate(0,26) translate(120,280) scale(.94,.62) translate(-120,-280)"></use>
+</g>
+<use href="#coreLine" stroke="#f59e0b" stroke-width="2.5" filter="drop-shadow(0px 2px 4px rgba(245,158,11,.4))"></use>
+<g class="data-point opacity-0"><line x1="120" y1="280" x2="120" y2="340" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"></line><circle cx="120" cy="280" r="7" fill="#1a1a1a" stroke="#f59e0b" stroke-width="2"></circle><circle cx="120" cy="280" r="3" fill="#f59e0b"></circle><circle cx="120" cy="340" r="3.5" fill="#f59e0b"></circle></g>
+<g class="data-point opacity-0"><line x1="272" y1="210" x2="272" y2="340" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"></line><circle cx="272" cy="210" r="7" fill="#1a1a1a" stroke="#f59e0b" stroke-width="2"></circle><circle cx="272" cy="210" r="3" fill="#f59e0b"></circle><circle cx="272" cy="340" r="3.5" fill="#f59e0b"></circle></g>
+<g class="data-point opacity-0"><line x1="348" y1="190" x2="348" y2="340" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"></line><circle cx="348" cy="190" r="7" fill="#1a1a1a" stroke="#f59e0b" stroke-width="2"></circle><circle cx="348" cy="190" r="3" fill="#f59e0b"></circle><circle cx="348" cy="340" r="3.5" fill="#f59e0b"></circle></g>
+<g class="data-point opacity-0"><line x1="766" y1="110" x2="766" y2="340" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"></line><circle cx="766" cy="110" r="7" fill="#1a1a1a" stroke="#f59e0b" stroke-width="2"></circle><circle cx="766" cy="110" r="3" fill="#f59e0b"></circle><circle cx="766" cy="340" r="3.5" fill="#f59e0b"></circle></g>
+<g class="data-point opacity-0"><line x1="880" y1="60" x2="880" y2="340" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"></line><circle cx="880" cy="60" r="7" fill="#1a1a1a" stroke="#f59e0b" stroke-width="2"></circle><circle cx="880" cy="60" r="3" fill="#f59e0b"></circle><circle cx="880" cy="340" r="3.5" fill="#f59e0b"></circle></g>
+</g>
+</svg>
+</div>
+</div>
+
+<div class="bg-[#111111] rounded-xl p-7 mt-3 z-10">
+<h3 class="text-[26px] font-bold mb-6 tracking-wide">Product <span class="text-[#f59e0b]">Overview</span></h3>
+<div class="grid grid-cols-3 gap-6">
+<div class="flex flex-col">
+<span class="text-white text-[15px] mb-1 font-normal">Origin</span>
+<span class="text-[40px] font-bold text-[#f59e0b] leading-none" id="val-origin">0</span>
+<span class="text-[13px] mt-3 leading-tight tracking-wide"><span class="text-gray-400">Top3:</span> <span class="text-gray-200 ml-1">China United States India</span></span>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-[15px] mb-1 font-normal">Destination</span>
+<span class="text-[40px] font-bold text-[#f59e0b] leading-none" id="val-dest">0</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-[15px] mb-1 font-normal">Customers</span>
+<span class="text-[40px] font-bold text-[#f59e0b] leading-none" id="val-cust">0</span>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+
+function animateValue(id,targetValue,duration){
+const obj=document.getElementById(id);
+const startValue=parseInt(obj.innerText)||0;
+const range=targetValue-startValue;
+if(!range)return;
+let startTime=null;
+function step(currentTime){
+if(!startTime)startTime=currentTime;
+const progress=Math.min((currentTime-startTime)/duration,1);
+obj.innerText=Math.floor(startValue+(progress*range));
+if(progress<1)requestAnimationFrame(step);else obj.innerText=targetValue;
+}
+requestAnimationFrame(step);
+}
+
+async function playTimeline(){
+const sweepRect=document.getElementById('sweepRect');
+const dataPoints=document.querySelectorAll('.data-point');
+const mapDots=document.querySelectorAll('.map-dot-container');
+
+sweepRect.style.transform='scaleX(0)';
+dataPoints.forEach(p=>p.classList.replace('opacity-100','opacity-0'));
+mapDots.forEach(d=>d.classList.replace('opacity-100','opacity-0'));
+document.getElementById('val-origin').innerText='0';
+document.getElementById('val-dest').innerText='0';
+document.getElementById('val-cust').innerText='0';
+
+await sleep(400);
+
+const stages=[
+{scale:.15,origin:10,dest:4,cust:42,dots:[0,1],delay:450},
+{scale:.30,origin:18,dest:9,cust:115,dots:[2],delay:450},
+{scale:.40,origin:22,dest:14,cust:160,dots:[3],delay:450},
+{scale:.75,origin:34,dest:21,cust:235,dots:[4,5],delay:550},
+{scale:1,origin:41,dest:26,cust:274,dots:[6],delay:450}
+];
+
+for(let i=0;i<stages.length;i++){
+const stage=stages[i];
+sweepRect.style.transform=`scaleX(${stage.scale})`;
+animateValue('val-origin',stage.origin,350);
+animateValue('val-dest',stage.dest,350);
+animateValue('val-cust',stage.cust,350);
+setTimeout(()=>{
+if(dataPoints[i])dataPoints[i].classList.replace('opacity-0','opacity-100');
+stage.dots.forEach(dotIdx=>{if(mapDots[dotIdx])mapDots[dotIdx].classList.replace('opacity-0','opacity-100')});
+},150);
+await sleep(stage.delay);
+}
+}
+
+document.addEventListener('DOMContentLoaded',playTimeline);
+</script>
+</body>
+</html>
