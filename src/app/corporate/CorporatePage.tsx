@@ -54,7 +54,7 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         {/* Logo + Tagline — horizontal layout */}
-        <div className="animate-fade-in-up flex items-center gap-6 md:gap-8" style={{ animationDelay: "0.1s" }}>
+        <div className="animate-fade-in-up flex items-end gap-6 md:gap-8" style={{ animationDelay: "0.1s" }}>
           {/* Animated Logo Icon */}
           <div className="w-36 h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 shrink-0">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
