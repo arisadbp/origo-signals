@@ -131,10 +131,11 @@ export default function TopNav() {
           ))}
           <Link
             href="/contact"
-            className="btn-gold"
+            className="btn-gold inline-flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
             จองเวลา
+            <ArrowRight size={18} />
           </Link>
         </div>
       </div>
