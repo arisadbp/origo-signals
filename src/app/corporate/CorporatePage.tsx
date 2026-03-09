@@ -359,18 +359,24 @@ function HowItWorksSection() {
   const cards = [
     {
       num: "01",
-      title: "Get Clarity",
-      body: "Transform complex market data into clear, actionable visuals. Know exactly where you stand and where the opportunities are.",
+      title: "Market Intelligence Platform",
+      desc: "Access real-time market intelligence and operational insights in one place.",
+      detail: "Origo replaces fragmented spreadsheets and delayed reports with a unified platform designed for international suppliers and manufacturers.",
+      values: ["Real-time market signals", "Operational dashboards", "Clear business insights"],
     },
     {
       num: "02",
-      title: "Get Connected",
-      body: "Discover the right countries and buyers for your business. Access new markets with precision targeting and verified contacts.",
+      title: "Business Intelligence Structuring",
+      desc: "Every company holds its own internal intelligence — shaped by experience, culture, and resources.",
+      detail: "Origo helps structure this knowledge into a system that supports better decision-making.",
+      values: ["Organize internal business knowledge", "Turn experience into structured insights", "Build a clearer strategic perspective"],
     },
     {
       num: "03",
-      title: "Get Ahead",
-      body: "Stay ahead with continuous market intelligence, strategic recommendations, and a clear roadmap for your next move.",
+      title: "AI Decision Support",
+      desc: "Origo uses AI and automation to handle operational complexity, allowing leaders to focus on relationships, trust, and long-term strategic decisions.",
+      detail: "",
+      values: ["AI-assisted analysis", "Process automation", "Strategic decision support"],
     },
   ];
 
@@ -383,32 +389,46 @@ function HowItWorksSection() {
           className={`text-center mb-16 transition-all duration-700 ${rv.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40 mb-4">
-            How It Works
+            Our Services
           </p>
           <h2 className="font-heading text-2xl md:text-4xl font-bold text-white">
-            Three steps to global growth
+            How It <span className="text-[var(--luxury-accent)]">Works</span>
           </h2>
-          <p className="mt-3 text-white/40 text-sm md:text-base max-w-md mx-auto">
-            A simple, guided process designed to unlock your international potential
+          <p className="mt-3 text-white/40 text-sm md:text-base max-w-lg mx-auto">
+            Three integrated layers designed to give you clarity, structure, and strategic advantage.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {cards.map((card, i) => {
             const cr = useReveal();
             return (
               <div
                 key={card.num}
                 ref={cr.ref}
-                className={`group rounded-2xl p-6 md:p-8 border border-white/[0.04] bg-white/[0.02] transition-all duration-700 hover:border-[var(--luxury-accent)]/15 hover:bg-white/[0.04] ${
+                className={`group rounded-2xl p-6 md:p-7 border border-white/[0.04] bg-white/[0.02] transition-all duration-700 hover:border-[var(--luxury-accent)]/15 hover:bg-white/[0.04] flex flex-col ${
                   cr.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
                 <span className="text-[var(--luxury-accent)]/50 text-xs font-mono">{card.num}</span>
-                <h3 className="mt-4 text-lg md:text-xl font-bold text-white">{card.title}</h3>
-                <p className="mt-3 text-white/40 text-sm leading-[1.8]">{card.body}</p>
+                <h3 className="mt-4 text-base md:text-lg font-bold text-white">{card.title}</h3>
+                <p className="mt-3 text-white/45 text-sm leading-[1.8]">{card.desc}</p>
+                {card.detail && (
+                  <p className="mt-2 text-white/30 text-sm leading-[1.8]">{card.detail}</p>
+                )}
+
+                {/* Key Values */}
+                <div className="mt-auto pt-5 space-y-2.5 border-t border-white/[0.04]">
+                  <span className="text-[9px] font-medium uppercase tracking-[0.25em] text-[var(--luxury-accent)]/60">Key Value</span>
+                  {card.values.map((v, vi) => (
+                    <div key={vi} className="flex items-center gap-2.5">
+                      <span className="w-1 h-1 rounded-full bg-[var(--luxury-accent)]/40 shrink-0" />
+                      <span className="text-white/50 text-xs">{v}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             );
           })}
