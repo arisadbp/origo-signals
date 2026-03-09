@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import TopNav from "@/components/landing/TopNav";
 
 /* ─── Scroll-reveal hook ─── */
 function useReveal(threshold = 0.15) {
@@ -38,107 +39,12 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
-/* ─── Menu items ─── */
-const menuItems = [
+const corporateLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
   { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
-
-/* ─── Nav — Apple-style minimal ─── */
-function CorporateNav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 50);
-    h();
-    window.addEventListener("scroll", h);
-    return () => window.removeEventListener("scroll", h);
-  }, []);
-
-  return (
-    <>
-      <header
-        className={`sticky top-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[var(--luxury-bg-base)]/80 backdrop-blur-2xl border-b border-white/[0.06]"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="mx-auto flex h-14 w-full max-w-5xl items-center px-6 md:h-16">
-          <Link href="/" className="flex items-center">
-            <Image src="/LOGO_ORI.png" alt="ORIGO" width={120} height={36} className="h-8 w-auto" priority />
-          </Link>
-
-          <nav className="hidden md:flex flex-1 justify-center gap-1">
-            {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-[13px] font-medium text-white/50 transition-colors duration-200 hover:text-white rounded-lg"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex-1 md:hidden" />
-
-          <a
-            href="https://www.origo-ai.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center px-5 py-2 rounded-full text-[13px] font-semibold bg-[var(--luxury-accent)] text-[#0A0A0A] transition-all duration-200 hover:brightness-110"
-          >
-            Login
-          </a>
-
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
-            aria-label="Toggle menu"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-              {mobileOpen ? (
-                <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-              ) : (
-                <><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" /></>
-              )}
-            </svg>
-          </button>
-        </div>
-      </header>
-
-      {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-[var(--luxury-bg-base)]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden animate-fade-in">
-          {menuItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium text-white/70 hover:text-white transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="https://www.origo-ai.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 px-8 py-3 rounded-full text-sm font-semibold bg-[var(--luxury-accent)] text-[#0A0A0A]"
-            onClick={() => setMobileOpen(false)}
-          >
-            Login
-          </a>
-        </div>
-      )}
-    </>
-  );
-}
-
 /* ─── Section 1: Hero — One clear message ─── */
 function HeroSection() {
   return (
@@ -494,7 +400,7 @@ function CorporateFooter() {
 export default function CorporateHomePage() {
   return (
     <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[var(--luxury-bg-base)] text-white scroll-smooth custom-scrollbar">
-      <CorporateNav />
+      <TopNav links={corporateLinks} ctaLabel="Login" ctaHref="https://www.origo-ai.com" ctaExternal />
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
@@ -504,4 +410,4 @@ export default function CorporateHomePage() {
   );
 }
 
-export { AboutSection, ExperienceSection, HowItWorksSection, CorporateFooter, CorporateNav };
+export { AboutSection, ExperienceSection, HowItWorksSection, CorporateFooter };
