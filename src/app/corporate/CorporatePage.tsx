@@ -410,4 +410,4 @@ export default function CorporateHomePage() {
   );
 }
 
-export { AboutSection, ExperienceSection, HowItWorksSection, CorporateFooter, CorporateNav };
+export { AboutSection, ExperienceSection, HowItWorksSection, CorporateFooter };
