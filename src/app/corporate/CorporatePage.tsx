@@ -53,32 +53,37 @@ function HeroSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--luxury-accent)]/[0.03] blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
-        {/* Logo animation */}
-        <div className="w-24 h-24 md:w-32 md:h-32 mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
-            <circle
-              className="animate-[squishRing_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate_0.3s]"
-              cx="110" cy="110" r="45"
-              stroke="var(--luxury-accent)" strokeWidth="30" fill="none"
-              style={{ transformOrigin: "110px 155px" }}
-            />
-            <circle
-              className="animate-[jumpDot_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate]"
-              cx="45" cy="45" r="15"
-              fill="var(--luxury-accent)"
-              style={{ transformOrigin: "45px 45px" }}
-            />
-          </svg>
+        {/* Logo + Tagline — horizontal layout */}
+        <div className="animate-fade-in-up flex items-center gap-5 md:gap-7" style={{ animationDelay: "0.1s" }}>
+          {/* Animated Logo Icon */}
+          <div className="w-20 h-20 md:w-28 md:h-28 shrink-0">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
+              <circle
+                className="animate-[squishRing_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate_0.3s]"
+                cx="110" cy="110" r="45"
+                stroke="var(--luxury-accent)" strokeWidth="30" fill="none"
+                style={{ transformOrigin: "110px 155px" }}
+              />
+              <circle
+                className="animate-[jumpDot_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate]"
+                cx="45" cy="45" r="15"
+                fill="var(--luxury-accent)"
+                style={{ transformOrigin: "45px 45px" }}
+              />
+            </svg>
+          </div>
+
+          {/* Text */}
+          <div className="text-left">
+            <h1 className="font-heading font-black leading-[1.05] tracking-tight text-[clamp(2.2rem,6vw,5rem)]">
+              <span className="text-white">FOCUS THE </span>
+              <span className="text-[var(--luxury-accent)]">8%</span>
+            </h1>
+            <p className="font-heading font-medium tracking-wide text-white/30 text-[clamp(0.9rem,2.2vw,1.4rem)] mt-1">
+              DESIGNS THE <span className="text-[var(--luxury-accent)]">92%</span>
+            </p>
+          </div>
         </div>
-
-        <h1 className="animate-fade-in-up font-heading font-black text-white leading-[1.05] tracking-tight text-[clamp(2.8rem,7vw,5.5rem)]" style={{ animationDelay: "0.2s" }}>
-          <span className="text-white">Focus the </span>
-          <span className="text-[var(--luxury-accent)]">8%</span>
-        </h1>
-
-        <p className="mt-3 animate-fade-in-up font-heading text-white/30 font-medium tracking-wide text-[clamp(1rem,2.5vw,1.5rem)]" style={{ animationDelay: "0.35s" }}>
-          Design the 92%
-        </p>
 
         <p className="mt-8 animate-fade-in-up text-white/50 text-sm md:text-base max-w-lg leading-relaxed" style={{ animationDelay: "0.5s" }}>
           We help businesses focus on what truly drives growth — customers, relationships, and strategy — while intelligent systems handle everything else.
