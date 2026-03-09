@@ -139,12 +139,12 @@ export default function GlobalMarketDashboard() {
       style={{ opacity: isInView ? 1 : 0, transform: isInView ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.6s ease-out, transform 0.6s ease-out" }}
     >
       {/* Header */}
-      <div className="text-center z-10 mb-4">
-        <h3 className="text-xl md:text-2xl font-bold tracking-wide">
+      <div className="text-center z-10 mb-2">
+        <h3 className="text-lg md:text-xl font-bold tracking-wide">
           <span>Global </span>
           <span className="text-[var(--luxury-accent)]">YOUR</span>
         </h3>
-        <p className="text-xs text-white/50 mt-0.5">product to International Market</p>
+        <p className="text-[10px] md:text-xs text-white/50 mt-0.5">product to International Market</p>
       </div>
 
       {/* World Maps */}
