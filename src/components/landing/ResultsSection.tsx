@@ -51,7 +51,7 @@ export default function ResultsSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/25" />
             <div className="relative">
-              <AnimatedResultsChart isInView={!!ref.current} totalSales={totalSales} variant="mobile" />
+              <AnimatedResultsChart isInView={isInView} totalSales={totalSales} variant="mobile" />
             </div>
           </div>
           {/* Chart - hidden on mobile, visible on desktop */}
