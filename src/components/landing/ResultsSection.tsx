@@ -72,84 +72,10 @@ export default function ResultsSection() {
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/25" />
-
             <div className="relative">
-              <svg
-                viewBox="0 0 720 240"
-                className="h-60 w-full"
-                role="img"
-                aria-label="ยอดขายเติบโต 4 เดือน"
-              >
-                <defs>
-                  <linearGradient id="lineGlow" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0%" stopColor="#FFB347" stopOpacity="0.85" />
-                    <stop offset="100%" stopColor="#FFBF5A" stopOpacity="1" />
-                  </linearGradient>
-                </defs>
-                <g fill="rgba(255,255,255,0.55)" fontSize="12">
-                  <text x="22" y="18">
-                    200%
-                  </text>
-                  <text x="26" y="70">
-                    100%
-                  </text>
-                  <text x="30" y="120">
-                    50%
-                  </text>
-                  <text x="30" y="170">
-                    25%
-                  </text>
-                  <text x="34" y="228">
-                    0%
-                  </text>
-                </g>
-                <path
-                  d="M80 210 L230 145 L370 115 L490 60"
-                  fill="none"
-                  stroke="url(#lineGlow)"
-                  strokeWidth="2"
-                />
-                <g fill="#FFBF5A">
-                  {[
-                    { x: 80, y: 210 },
-                    { x: 230, y: 145 },
-                    { x: 370, y: 115 },
-                    { x: 490, y: 60 },
-                  ].map((point) => (
-                    <circle
-                      key={`${point.x}-${point.y}`}
-                      cx={point.x}
-                      cy={point.y}
-                      r="4.5"
-                    />
-                  ))}
-                </g>
-                <g fill="rgba(255,255,255,0.6)" fontSize="12">
-                  <text x="70" y="234">
-                    Month 1
-                  </text>
-                  <text x="210" y="234">
-                    Month 2
-                  </text>
-                  <text x="340" y="234">
-                    Month 3
-                  </text>
-                  <text x="450" y="234">
-                    Month 4
-                  </text>
-                </g>
-              </svg>
-
-              <div className="pointer-events-none absolute right-6 top-14 text-right sm:right-10">
-                <p className="text-xl text-white/60 sm:text-2xl">ยอดขายรวมมากกว่า</p>
-                <div className="-mt-4 text-[3rem] font-semibold text-[var(--luxury-accent)] sm:text-[3.6rem] data-counter">
-                  {totalSales}+
-                </div>
-                <p className="-mt-4 text-3xl text-white/95 sm:text-4xl">
-                  ล้านบาท
-                </p>
-              </div>
+              <AnimatedResultsChart isInView={!!ref.current} totalSales={totalSales} variant="desktop" />
             </div>
+          </div>
           </div>
 
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:gap-6 md:mt-8">
