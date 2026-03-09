@@ -135,7 +135,7 @@ export default function GlobalMarketDashboard() {
   return (
     <div
       ref={containerRef}
-      className="w-full aspect-square rounded-2xl border border-white/[0.06] bg-[#1a1a1a] p-5 md:p-6 flex flex-col overflow-hidden"
+      className="w-full aspect-square rounded-2xl border border-white/[0.06] bg-[#1a1a1a] p-4 md:p-5 flex flex-col justify-between overflow-hidden"
       style={{ opacity: isInView ? 1 : 0, transform: isInView ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.6s ease-out, transform 0.6s ease-out" }}
     >
       {/* Header */}
