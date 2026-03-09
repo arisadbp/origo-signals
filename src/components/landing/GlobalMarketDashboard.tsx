@@ -295,7 +295,7 @@ export default function GlobalMarketDashboard() {
         <h4 className="text-sm md:text-base font-bold mb-2 tracking-wide">
           Product <span className="text-[var(--luxury-accent)]">Overview</span>
         </h4>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-3">
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Origin</span>
             <span className="text-2xl md:text-3xl font-bold text-[var(--luxury-accent)] leading-none">{originVal}</span>
