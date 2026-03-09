@@ -135,20 +135,20 @@ export default function GlobalMarketDashboard() {
   return (
     <div
       ref={containerRef}
-      className="w-full aspect-square rounded-2xl border border-white/[0.06] bg-[#1a1a1a] p-5 md:p-6 flex flex-col overflow-hidden"
+      className="w-full aspect-square rounded-2xl border border-white/[0.06] bg-[#1a1a1a] p-4 md:p-5 flex flex-col justify-between overflow-hidden"
       style={{ opacity: isInView ? 1 : 0, transform: isInView ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.6s ease-out, transform 0.6s ease-out" }}
     >
       {/* Header */}
-      <div className="text-center z-10 mb-4">
-        <h3 className="text-xl md:text-2xl font-bold tracking-wide">
+      <div className="text-center z-10 mb-2">
+        <h3 className="text-lg md:text-xl font-bold tracking-wide">
           <span>Global </span>
           <span className="text-[var(--luxury-accent)]">YOUR</span>
         </h3>
-        <p className="text-xs text-white/50 mt-0.5">product to International Market</p>
+        <p className="text-[10px] md:text-xs text-white/50 mt-0.5">product to International Market</p>
       </div>
 
       {/* World Maps */}
-      <div className="flex justify-between items-center w-full px-1 mb-3 z-10">
+      <div className="flex justify-between items-center w-full px-1 mb-2 z-10">
         {MAP_REGIONS.map((regions, mapIdx) => (
           <div key={mapIdx} className="w-[31%] aspect-[2/1] relative">
             <div
@@ -202,9 +202,9 @@ export default function GlobalMarketDashboard() {
       </div>
 
       {/* Chart */}
-      <div className="relative flex-grow w-full min-h-[140px] md:min-h-[180px]">
+      <div className="relative flex-1 w-full min-h-0">
         <div className="absolute top-0 left-1 z-20 pointer-events-none">
-          <h4 className="text-base md:text-lg font-bold leading-tight">
+          <h4 className="text-sm md:text-base font-bold leading-tight">
             Market<br />
             <span className="text-[var(--luxury-accent)] font-normal">Insight</span>
           </h4>
@@ -291,14 +291,14 @@ export default function GlobalMarketDashboard() {
       </div>
 
       {/* Product Overview */}
-      <div className="bg-[#111111] rounded-xl p-5 mt-2 z-10">
-        <h4 className="text-lg md:text-xl font-bold mb-4 tracking-wide">
+      <div className="bg-[#111111] rounded-xl p-3 md:p-4 mt-1 z-10 shrink-0">
+        <h4 className="text-sm md:text-base font-bold mb-2 tracking-wide">
           Product <span className="text-[var(--luxury-accent)]">Overview</span>
         </h4>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-3">
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Origin</span>
-            <span className="text-2xl md:text-3xl font-bold text-[var(--luxury-accent)] leading-none">{originVal}</span>
+            <span className="text-xl md:text-2xl font-bold text-[var(--luxury-accent)] leading-none">{originVal}</span>
             <span className="text-[10px] mt-2 leading-tight">
               <span className="text-white/40">Top3:</span>{" "}
               <span className="text-white/60 ml-1">China United States India</span>
@@ -306,11 +306,11 @@ export default function GlobalMarketDashboard() {
           </div>
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Destination</span>
-            <span className="text-2xl md:text-3xl font-bold text-[var(--luxury-accent)] leading-none">{destVal}</span>
+            <span className="text-xl md:text-2xl font-bold text-[var(--luxury-accent)] leading-none">{destVal}</span>
           </div>
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Customers</span>
-            <span className="text-2xl md:text-3xl font-bold text-[var(--luxury-accent)] leading-none">{custVal}</span>
+            <span className="text-xl md:text-2xl font-bold text-[var(--luxury-accent)] leading-none">{custVal}</span>
           </div>
         </div>
       </div>
