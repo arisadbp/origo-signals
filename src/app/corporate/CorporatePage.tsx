@@ -441,22 +441,22 @@ function CorporateFooter() {
         </p>
 
         <h2 className="font-heading text-2xl md:text-4xl font-bold text-white">
-          พร้อมเติบโตไปด้วยกัน?
+          Ready to grow together?
         </h2>
 
         <p className="mt-4 text-white/40 text-sm md:text-base max-w-md mx-auto">
-          จองเวลาเพื่อคุยว่าธุรกิจของคุณควรวางแผนอย่างไร
+          Book a consultation to discover how ORIGO can help your business expand into global markets with clarity and confidence.
         </p>
 
         <Link
           href="/contact"
           className="mt-10 inline-flex items-center px-10 py-4 rounded-full bg-[var(--luxury-accent)] text-sm font-semibold text-[#0A0A0A] transition-all duration-300 hover:brightness-110 hover:shadow-[0_16px_40px_rgba(255,189,89,0.25)]"
         >
-          จองเวลาคุยกับเรา
+          Book a Consultation
         </Link>
 
         <p className="mt-4 text-white/20 text-xs">
-          จำกัด 5 บริษัทต่อเดือน
+          Limited to 5 companies per month
         </p>
       </div>
 
