@@ -400,7 +400,7 @@ function CorporateFooter() {
 export default function CorporateHomePage() {
   return (
     <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[var(--luxury-bg-base)] text-white scroll-smooth custom-scrollbar">
-      <CorporateNav />
+      <TopNav links={corporateLinks} ctaLabel="Login" ctaHref="https://www.origo-ai.com" ctaExternal />
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
