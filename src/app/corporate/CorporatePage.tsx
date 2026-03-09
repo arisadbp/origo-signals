@@ -54,9 +54,9 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         {/* Logo + Tagline — horizontal layout */}
-        <div className="animate-fade-in-up flex items-center gap-5 md:gap-7" style={{ animationDelay: "0.1s" }}>
+        <div className="animate-fade-in-up flex items-center gap-6 md:gap-8" style={{ animationDelay: "0.1s" }}>
           {/* Animated Logo Icon */}
-          <div className="w-20 h-20 md:w-28 md:h-28 shrink-0">
+          <div className="w-28 h-28 md:w-40 md:h-40 lg:w-48 lg:h-48 shrink-0">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
               <circle
                 className="animate-[squishRing_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate_0.3s]"
@@ -75,11 +75,11 @@ function HeroSection() {
 
           {/* Text */}
           <div className="text-left">
-            <h1 className="font-heading font-black leading-[1.05] tracking-tight text-[clamp(2.2rem,6vw,5rem)]">
+            <h1 className="font-heading font-black leading-[1] tracking-tight text-[clamp(2.4rem,6.5vw,5.5rem)]">
               <span className="text-white">FOCUS THE </span>
               <span className="text-[var(--luxury-accent)]">8%</span>
             </h1>
-            <p className="font-heading font-medium tracking-wide text-white/30 text-[clamp(0.9rem,2.2vw,1.4rem)] mt-1">
+            <p className="font-heading font-medium tracking-wide text-white/35 text-[clamp(1.3rem,3.5vw,2.8rem)] mt-1 md:mt-2">
               DESIGNS THE <span className="text-[var(--luxury-accent)]">92%</span>
             </p>
           </div>
