@@ -122,11 +122,11 @@ export default function LandingHeroClonePage() {
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div className="relative overflow-hidden rounded-2xl bg-[var(--luxury-bg-elevated-2)] aspect-[3/4] max-w-[400px]">
               <Image
-                src="/landing-hero/profile (25).png"
-                alt="ORIGO profile"
+                src="/landing-hero/ceo.jpg"
+                alt="ORIGO Executive"
                 width={640}
                 height={720}
-                className="h-full w-full object-cover object-[75%_100%] scale-[1.1] transition-transform duration-500"
+                className="h-full w-full object-cover object-top transition-transform duration-500"
               />
             </div>
 
