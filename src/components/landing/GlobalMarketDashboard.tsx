@@ -298,7 +298,7 @@ export default function GlobalMarketDashboard() {
         <div className="grid grid-cols-3 gap-3">
           <div className="flex flex-col">
             <span className="text-white text-xs mb-1">Origin</span>
-            <span className="text-2xl md:text-3xl font-bold text-[var(--luxury-accent)] leading-none">{originVal}</span>
+            <span className="text-xl md:text-2xl font-bold text-[var(--luxury-accent)] leading-none">{originVal}</span>
             <span className="text-[10px] mt-2 leading-tight">
               <span className="text-white/40">Top3:</span>{" "}
               <span className="text-white/60 ml-1">China United States India</span>
