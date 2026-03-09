@@ -198,9 +198,7 @@ export default function LandingHeroClonePage() {
               </div>
             </div>
 
-            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src="/2.png" alt="Market insight" fill className="object-cover" />
-            </div>
+            <GlobalMarketDashboard />
           </div>
         </div>
       </section>
