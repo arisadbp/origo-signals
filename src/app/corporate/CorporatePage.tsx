@@ -52,12 +52,12 @@ function HeroSection() {
       {/* Minimal ambient light */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--luxury-accent)]/[0.03] blur-[120px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center px-6 text-center">
-        {/* Logo + Tagline — horizontal layout */}
-        <div className="animate-fade-in-up flex items-end gap-6 md:gap-8" style={{ animationDelay: "0.1s" }}>
-          {/* Animated Logo Icon */}
-          <div className="w-36 h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 shrink-0">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
+      <div className="relative z-10 flex flex-col items-center px-6">
+        {/* Logo + Tagline — horizontal layout matching reference */}
+        <div className="animate-fade-in-up flex items-center gap-4 md:gap-6" style={{ animationDelay: "0.1s" }}>
+          {/* Animated Logo Icon — tighter viewBox for proper alignment */}
+          <div className="shrink-0 w-[100px] h-[100px] md:w-[160px] md:h-[160px] lg:w-[200px] lg:h-[200px]">
+            <svg viewBox="25 25 140 140" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
               <circle
                 className="animate-[squishRing_0.6s_cubic-bezier(.28,.84,.42,1)_infinite_alternate_0.3s]"
                 cx="110" cy="110" r="45"
@@ -73,13 +73,13 @@ function HeroSection() {
             </svg>
           </div>
 
-          {/* Text */}
+          {/* Text block */}
           <div className="text-left">
-            <h1 className="font-heading font-black leading-[1] tracking-tight text-[clamp(2.4rem,6.5vw,5.5rem)]">
+            <h1 className="font-heading font-black leading-[1] tracking-tight text-[2.2rem] md:text-[4rem] lg:text-[5rem]">
               <span className="text-white">FOCUS THE </span>
               <span className="text-[var(--luxury-accent)]">8%</span>
             </h1>
-            <p className="font-heading font-medium tracking-wide text-white/35 text-[clamp(1.3rem,3.5vw,2.8rem)] mt-1 md:mt-2">
+            <p className="font-heading font-semibold tracking-wide text-white/30 text-[1.1rem] md:text-[2rem] lg:text-[2.5rem] leading-[1.2] mt-0.5 md:mt-1">
               DESIGNS THE <span className="text-[var(--luxury-accent)]">92%</span>
             </p>
           </div>
