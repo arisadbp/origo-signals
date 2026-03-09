@@ -76,7 +76,6 @@ export default function ResultsSection() {
               <AnimatedResultsChart isInView={!!ref.current} totalSales={totalSales} variant="desktop" />
             </div>
           </div>
-          </div>
 
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:gap-6 md:mt-8">
             {/* Customer growth card */}
