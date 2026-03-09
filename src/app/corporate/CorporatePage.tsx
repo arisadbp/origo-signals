@@ -292,10 +292,11 @@ function ExperienceSection() {
             Our Insight
           </p>
           <h2 className="font-heading text-2xl md:text-4xl font-bold text-white leading-[1.3] max-w-2xl">
-            ธุรกิจไม่โตจากการทำทุกอย่างพร้อมกัน
-            <br />
-            <span className="text-white/40 font-normal text-lg md:text-2xl">แต่จากการโฟกัสสิ่งที่ถูกต้อง</span>
+            Growth doesn&apos;t come from doing everything at once
           </h2>
+          <p className="mt-3 text-white/40 text-base md:text-lg max-w-xl">
+            It comes from focusing on what truly matters
+          </p>
         </div>
 
         {/* 92% vs 8% comparison */}
@@ -308,9 +309,9 @@ function ExperienceSection() {
             <div className="text-center md:text-right md:pr-12">
               <span className="text-5xl md:text-7xl font-black text-white/[0.07] leading-none">92%</span>
               <p className="mt-3 text-white/30 text-sm leading-relaxed max-w-xs mx-auto md:ml-auto md:mr-0">
-                งาน Operational ที่ระบบจัดการได้
+                Operational work that systems can handle
                 <br />
-                <span className="text-white/20">ข้อมูล · กระบวนการ · การประสานงาน</span>
+                <span className="text-white/20">Data · Processes · Coordination</span>
               </p>
             </div>
 
@@ -339,9 +340,9 @@ function ExperienceSection() {
                 8%
               </span>
               <p className="relative mt-3 text-white/70 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-                สิ่งที่ขับเคลื่อนการเติบโตจริง
+                What truly drives long-term growth
                 <br />
-                <span className="text-[var(--luxury-accent)]/70 font-medium">ลูกค้า · ความสัมพันธ์ · กลยุทธ์</span>
+                <span className="text-[var(--luxury-accent)]/70 font-medium">Customers · Relationships · Strategy</span>
               </p>
             </div>
           </div>
