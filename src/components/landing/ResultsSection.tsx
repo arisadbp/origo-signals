@@ -50,56 +50,8 @@ export default function ResultsSection() {
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/25" />
-
             <div className="relative">
-              <svg
-                viewBox="0 0 320 140"
-                className="h-36 w-full"
-                role="img"
-                aria-label="ยอดขายเติบโต 4 เดือน"
-              >
-                <defs>
-                  <linearGradient id="lineGlowMobile" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0%" stopColor="#FFB347" stopOpacity="0.85" />
-                    <stop offset="100%" stopColor="#FFBF5A" stopOpacity="1" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M20 120 L95 85 L185 65 L285 30"
-                  fill="none"
-                  stroke="url(#lineGlowMobile)"
-                  strokeWidth="2"
-                />
-                <g fill="#FFBF5A">
-                  {[
-                    { x: 20, y: 120 },
-                    { x: 95, y: 85 },
-                    { x: 185, y: 65 },
-                    { x: 285, y: 30 },
-                  ].map((point) => (
-                    <circle
-                      key={`mobile-${point.x}-${point.y}`}
-                      cx={point.x}
-                      cy={point.y}
-                      r="3.5"
-                    />
-                  ))}
-                </g>
-                <g fill="rgba(255,255,255,0.6)" fontSize="10">
-                  <text x="12" y="136">M1</text>
-                  <text x="86" y="136">M2</text>
-                  <text x="176" y="136">M3</text>
-                  <text x="270" y="136">M4</text>
-                </g>
-              </svg>
-
-              <div className="pointer-events-none absolute right-2 top-2 text-right">
-                <p className="text-xs text-white/70">ยอดขายรวมมากกว่า</p>
-                <div className="-mt-1 text-2xl font-semibold text-[var(--luxury-accent)] data-counter">
-                  {totalSales}+
-                </div>
-                <p className="-mt-1 text-base text-white/90">ล้านบาท</p>
-              </div>
+              <AnimatedResultsChart isInView={!!ref.current} totalSales={totalSales} variant="mobile" />
             </div>
           </div>
           {/* Chart - hidden on mobile, visible on desktop */}
