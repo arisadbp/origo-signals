@@ -4,6 +4,7 @@ import TestimonialsCarousel from "@/components/landing/TestimonialsCarousel";
 import TopNav from "@/components/landing/TopNav";
 import ValueStatementSection from "@/components/landing/ValueStatementSection";
 import ResultsSection from "@/components/landing/ResultsSection";
+import GlobalMarketDashboard from "@/components/landing/GlobalMarketDashboard";
 
 export default function LandingHeroClonePage() {
   return (
@@ -197,9 +198,7 @@ export default function LandingHeroClonePage() {
               </div>
             </div>
 
-            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src="/2.png" alt="Market insight" fill className="object-cover" />
-            </div>
+            <GlobalMarketDashboard />
           </div>
         </div>
       </section>
