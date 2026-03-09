@@ -215,7 +215,7 @@ function AboutSection() {
             <div className="relative group">
               <div className="relative w-full aspect-[3/4] max-w-[320px] mx-auto rounded-2xl overflow-hidden">
                 <Image
-                  src="/landing-hero/ceo.jpg"
+                  src="/landing-hero/ceo-v2.jpg"
                   alt="Executive Leadership"
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
