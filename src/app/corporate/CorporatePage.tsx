@@ -263,6 +263,36 @@ function ExperienceSection() {
   );
 }
 
+/* ─── Service Card (extracted to follow rules of hooks) ─── */
+function ServiceCard({ card, index }: { card: { num: string; title: string; desc: string; detail: string; values: string[] }; index: number }) {
+  const cr = useReveal();
+  return (
+    <div
+      ref={cr.ref}
+      className={`group rounded-2xl p-6 md:p-7 border border-white/[0.04] bg-white/[0.02] transition-all duration-700 hover:border-[var(--luxury-accent)]/15 hover:bg-white/[0.04] flex flex-col ${
+        cr.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <span className="text-[var(--luxury-accent)]/50 text-xs font-mono">{card.num}</span>
+      <h3 className="mt-4 text-base md:text-lg font-bold text-white">{card.title}</h3>
+      <p className="mt-3 text-white/45 text-sm leading-[1.8]">{card.desc}</p>
+      {card.detail && (
+        <p className="mt-2 text-white/30 text-sm leading-[1.8]">{card.detail}</p>
+      )}
+      <div className="mt-auto pt-5 space-y-2.5 border-t border-white/[0.04]">
+        <span className="text-[9px] font-medium uppercase tracking-[0.25em] text-[var(--luxury-accent)]/60">Key Value</span>
+        {card.values.map((v, vi) => (
+          <div key={vi} className="flex items-center gap-2.5">
+            <span className="w-1 h-1 rounded-full bg-[var(--luxury-accent)]/40 shrink-0" />
+            <span className="text-white/50 text-xs">{v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Section 4: Services — Clean cards ─── */
 function HowItWorksSection() {
   const rv = useReveal();
